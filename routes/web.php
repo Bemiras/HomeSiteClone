@@ -29,6 +29,20 @@ Route::get('/card', 'CardController@index');
 
 Route::get('/message', 'MessageController@index');
 
+Route::get('/pendingapplication', 'PendingapplicationController@index');
+
+Route::get('/consideredapplication', 'ConsideredapplicationController@index');
+
+Route::get('/educationoffer', 'EducationofferController@index');
+
+Route::get('/userrole', 'UserroleController@index');
+
+Route::get('/dataapplication', 'DataapplicationController@index');
+
+Route::get('/userlist', 'UserlistController@index');
+
+Route::get('/news', 'NewsController@index');
+
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');

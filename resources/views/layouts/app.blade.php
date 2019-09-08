@@ -48,11 +48,10 @@
                         @else
 
 
-                        @if (Auth::check() && Auth::user()->albumnumber != null)
+                        @if (Auth::check() && Auth::user()->role == 'student')
                         <li class="nav-item">
                             <a class="nav-link" href="{{ URL::to('about') }}">Moje dane</a>
                         </li>
-                        @endif
 
                         <li class="nav-item">
                             <a class="nav-link" href="{{ URL::to('card') }}">Karta obiegowa</a>
@@ -61,9 +60,55 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ URL::to('message') }}">Korespondencje</a>
                         </li>
+                        @endif
 
+                        @if (Auth::check() && Auth::user()->role == 'pracownik')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ URL::to('about') }}">Moje dane</a>
+                        </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ URL::to('pendingapplication') }}">Oczekujące podania</a>
+                        </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ URL::to('consideredapplication') }}">Rozpatrzone podania</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ URL::to('message') }}">Korespondencje</a>
+                        </li>
+                        @endif
+
+                        @if (Auth::check() && Auth::user()->role == 'administrator')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ URL::to('about') }}">Moje dane</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ URL::to('educationoffer') }}">Oferta edukacyjna</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ URL::to('userrole') }}">Role użytkowników</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ URL::to('dataapplication') }}">Podania o zmianę danych</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ URL::to('userlist') }}">Lista użytkowników</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ URL::to('message') }}">Korespondencje</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ URL::to('news') }}">Aktualności</a>
+                        </li>
+                        @endif
 
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>

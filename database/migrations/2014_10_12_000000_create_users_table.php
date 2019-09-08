@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('levelstudy');
             $table->string('department');
             $table->string('direction');
+            $table->string('role')->default('student');
             $table->rememberToken();
             $table->timestamps();
         });
