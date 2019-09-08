@@ -47,7 +47,7 @@
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
 
-                        <!-- tworzenie osobnych nav-barow --!>
+
                         @if (Auth::check() && Auth::user()->albumnumber != null)
                         <li class="nav-item">
                             <a class="nav-link" href="{{ URL::to('about') }}">Moje dane</a>
@@ -55,11 +55,11 @@
                         @endif
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ URL::to('worker') }}">Karta obiegowa</a>
+                            <a class="nav-link" href="{{ URL::to('card') }}">Karta obiegowa</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ URL::to('admin') }}">Korespondencje</a>
+                            <a class="nav-link" href="{{ URL::to('message') }}">Korespondencje</a>
                         </li>
 
 

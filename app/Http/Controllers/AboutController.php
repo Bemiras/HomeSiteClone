@@ -10,8 +10,6 @@ class AboutController extends Controller
 {
     public function index()
     {
-        $user = User::all();
-
-        return view('about',["user"=>$user]);
+        return view('about');
     }
 }

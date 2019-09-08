@@ -25,6 +25,10 @@ Route::get('/admin', 'AdminController@index');
 
 Route::get('/about', 'AboutController@index');
 
+Route::get('/card', 'CardController@index');
+
+Route::get('/message', 'MessageController@index');
+
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
