@@ -7,8 +7,119 @@
 
 <h2 style="text-align: center">PANEL - Oczekujące podania</h2>
 
+@if ( Auth::user()->specialization == 'dziekanat' )
+<table align="center"  style="width: 40%;" class="table">
+    <thead>
+    <tr>
+        <th>Numer studenta</th>
+        <th>Imię</th>
+        <th>Nazwisko</th>
+        <th>WPIS Dziekanat</th>
+        <th></th>
+        <th></th>
+        
+    </tr>
+    </thead>
+    <tbody>
+    @foreach ($userlist as $user)
+    <tr>
+    @if ($user->deanery == 'W trakcie' && $user->card == 'W realizacji' )
+        <th scope="row">{{$user->id}}</th>
+        <th>{{$user->name}}</th>
+        <th>{{$user->lastname}}</th>
+        <th>{{$user->deanery}}</th>
+        <th><a  href="{{ action('PendingapplicationController@updateYesDeanery', $user->id_card) }}"><img src={{ asset('images/akcept.png') }}  /></a></th>
+        <th><a  href="{{ action('PendingapplicationController@updateNoDeanery', $user->id_card) }}"><img src={{ asset('images/notAkcept.png') }}  /></a></th>
+    @endif
+    </tr>
+    @endforeach
+    </tbody>
+</table>
 
 
+@elseif ( Auth::user()->specialization == 'biblioteka' )
+<table align="center"  style="width: 40%;" class="table">
+    <thead>
+    <tr>
+        <th>Numer studenta</th>
+        <th>Imię</th>
+        <th>Nazwisko</th>
+        <th>WPIS Biblioteka</th>
+        
+    </tr>
+    </thead>
+    <tbody>
+    @foreach ($userlist as $user)
+    <tr>
+    @if ($user->liblary == 'W trakcie' && $user->card == 'W realizacji')
+        <th scope="row">{{$user->id}}</th>
+        <th>{{$user->name}}</th>
+        <th>{{$user->lastname}}</th>
+        <th>{{$user->liblary}}</th>
+        <th><a  href="{{ action('PendingapplicationController@updateYesLiblary', $user->id_card) }}"><img src={{ asset('images/akcept.png') }}  /></a></th>
+        <th><a  href="{{ action('PendingapplicationController@updateNoLiblary', $user->id_card) }}"><img src={{ asset('images/notAkcept.png') }}  /></a></th>
 
+    @endif
+    </tr>
+    @endforeach
+    </tbody>
+</table>
+
+@elseif ( Auth::user()->specialization == 'akademik' )
+<table align="center"  style="width: 40%;" class="table">
+    <thead>
+    <tr>
+        <th>Numer studenta</th>
+        <th>Imię</th>
+        <th>Nazwisko</th>
+        <th>WPIS Akademik</th>
+        
+    </tr>
+    </thead>
+    <tbody>
+    @foreach ($userlist as $user)
+    <tr>
+    @if ($user->dormitory == 'W trakcie' && $user->card == 'W realizacji')
+        <th scope="row">{{$user->id}}</th>
+        <th>{{$user->name}}</th>
+        <th>{{$user->lastname}}</th>
+        <th>{{$user->dormitory}}</th>
+        <th><a  href="{{ action('PendingapplicationController@updateYesDormitory', $user->id_card) }}"><img src={{ asset('images/akcept.png') }}  /></a></th>
+        <th><a  href="{{ action('PendingapplicationController@updateNoDormitory', $user->id_card) }}"><img src={{ asset('images/notAkcept.png') }}  /></a></th>
+    @endif
+    </tr>
+    @endforeach
+    </tbody>
+</table>
+
+@elseif ( Auth::user()->specialization == 'sekretarz' )
+<table align="center"  style="width: 40%;" class="table">
+    <thead>
+    <tr>
+        <th>Numer studenta</th>
+        <th>Imię</th>
+        <th>Nazwisko</th>
+        <th>Wydział</th>
+        <th>Kierunek</th>
+        
+    </tr>
+    </thead>
+    <tbody>
+    @foreach ($userlist as $user)
+    <tr>
+    @if ($user->card == 'Rozpatrzenie' && $user->commission_id == 3)
+        <th scope="row">{{$user->id}}</th>
+        <th>{{$user->name}}</th>
+        <th>{{$user->lastname}}</th>
+        <th>{{$user->department}}</th>
+        <th>{{$user->direction}}</th>
+        <th><a  href="{{ action('PendingapplicationController@updateYesCard', $user->id) }}"><img src={{ asset('images/akcept.png') }}  /></a></th>
+        <th><a  href="{{ action('PendingapplicationController@updateNoCard', $user->id) }}"><img src={{ asset('images/notAkcept.png') }}  /></a></th>
+    @endif
+    </tr>
+    @endforeach
+    </tbody>
+</table>
+@endif
 
 @endsection('content')

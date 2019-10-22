@@ -26,14 +26,37 @@ Route::get('/admin', 'AdminController@index');
 Route::get('/about', 'AboutController@index');
 
 Route::get('/card', 'CardController@index');
+Route::post('/card/store', 'CardController@store');
 
 Route::get('/message', 'MessageController@index');
 
 Route::get('/pendingapplication', 'PendingapplicationController@index');
+Route::get('/pendingapplication/updateYesDeanery/{id}', 'PendingapplicationController@updateYesDeanery');
+Route::get('/pendingapplication/updateNoDeanery/{id}', 'PendingapplicationController@updateNoDeanery');
+Route::get('/pendingapplication/updateYesLiblary/{id}', 'PendingapplicationController@updateYesLiblary');
+Route::get('/pendingapplication/updateNoLiblary/{id}', 'PendingapplicationController@updateNoLiblary');
+Route::get('/pendingapplication/updateYesDormitory/{id}', 'PendingapplicationController@updateYesDormitory');
+Route::get('/pendingapplication/updateNoDormitory/{id}', 'PendingapplicationController@updateNoDormitory');
+Route::get('/pendingapplication/updateYesCard/{id}', 'PendingapplicationController@updateYesCard');
+Route::get('/pendingapplication/updateNoCard/{id}', 'PendingapplicationController@updateNoCard');
 
 Route::get('/consideredapplication', 'ConsideredapplicationController@index');
 
-Route::get('/educationoffer', 'EducationofferController@index');
+
+Route::get('/departmentoffer', 'DepartmentofferController@index');
+Route::get('/departmentoffer/create', 'DepartmentofferController@create');
+Route::post('/departmentoffer/store', 'DepartmentofferController@store');
+Route::get('/departmentoffer/destroy/{id}', 'DepartmentofferController@destroy');
+Route::post('/departmentoffer/update','DepartmentofferController@update');
+Route::get('/departmentoffer/edit/{id}', 'DepartmentofferController@edit');
+
+
+Route::get('/directionoffer', 'DirectionofferController@index');
+Route::get('/directionoffer/create', 'DirectionofferController@create');
+Route::post('/directionoffer/store', 'DirectionofferController@store');
+Route::get('/directionoffer/destroy/{id}', 'DirectionofferController@destroy');
+Route::post('/directionoffer/update','DirectionofferController@update');
+Route::get('/directionoffer/edit/{id}', 'DirectionofferController@edit');
 
 Route::get('/userrole', 'UserroleController@index');
 
@@ -42,6 +65,14 @@ Route::get('/dataapplication', 'DataapplicationController@index');
 Route::get('/userlist', 'UserlistController@index');
 
 Route::get('/news', 'NewsController@index');
+
+Route::get('/commissions', 'CommissionsController@index');
+Route::get('/commissions/create', 'CommissionsController@create');
+Route::post('/commissions/store', 'CommissionsController@store');
+Route::get('/commissions/destroy/{id}', 'CommissionsController@destroy');
+
+Route::post('/commissions/update','CommissionsController@update');
+Route::get('/commissions/edit/{id}', 'CommissionsController@edit');
 
 Auth::routes();
 

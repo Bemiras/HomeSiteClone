@@ -32,6 +32,10 @@
                 <a class="nav-link" >Role użytkowników</a>
             </li>
 
+             <li class="nav-item">
+                <a class="nav-link" >Oferta edukacyjna</a>
+            </li>
+
             <li class="nav-item">
                 <a class="nav-link" >Podania o  zmiane danych</a>
             </li>

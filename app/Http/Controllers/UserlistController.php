@@ -3,10 +3,20 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+
+use Illuminate\Http\Request;
+use App\Repositories\UserRepository;
+
+
 
 class UserlistController
 {
     public function index(){
-        return view('admin.userlist');
+
+        $users = User::all()->sortBy('id');
+
+
+        return view('admin.userlist',["userlist"=>$users]);
     }
 }

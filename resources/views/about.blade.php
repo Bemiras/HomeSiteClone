@@ -12,7 +12,7 @@
         <table align="center"  style="width: 40%;" class="table">
             <tr>
                 <td>Numer albumu:</td>
-                <td>{{ Auth::user()->albumnumber }}</td>
+                <td>{{ Auth::user()->id }}</td>
             </tr>
             <tr>
                 <td>Imię:</td>
@@ -27,24 +27,28 @@
                 <td>{{ Auth::user()->email }}</td>
             </tr>
             <tr>
-                <td>Rodzaj studiów:</td>
-                <td>{{ Auth::user()->typestudy }}</td>
-            </tr>
-            <tr>
-                <td>Poziom studiów:</td>
-                <td>{{ Auth::user()->levelstudy }}</td>
-            </tr>
-            <tr>
                 <td>Wydział:</td>
-                <td>{{ Auth::user()->department }}</td>
+                <td>{{ $datadepartment->name}}</td>
             </tr>
             <tr>
                 <td>Kierunek:</td>
-                <td>{{ Auth::user()->direction }}</td>
+                <td>{{ $datadirection->name}}</td>
+            </tr>
+            <tr>
+                <td>Poziom studiów:</td>
+                <td>{{ $datalevelstudy->name}}</td>
+            </tr>
+            <tr>
+                <td>Rodzaj studiów:</td>
+                <td>{{ $datatypestudy->name}}</td>
             </tr>
             <tr>
                 <td>Rola:</td>
                 <td>{{ Auth::user()->role }}</td>
+            </tr>
+            <tr>
+                <td>Karta obiegowa:</td>
+                <td>{{ Auth::user()->card }}</td>
             </tr>
         </table>
 @endif
@@ -53,7 +57,7 @@
 <table align="center"  style="width: 40%;" class="table">
     <tr>
         <td>Numer pracownika (login):</td>
-        <td>{{ Auth::user()->albumnumber }}</td>
+        <td>{{ Auth::user()->id }}</td>
     </tr>
     <tr>
         <td>Imię:</td>
@@ -69,12 +73,19 @@
     </tr>
     <tr>
         <td>Wydział:</td>
-        <td>{{ Auth::user()->department }}</td>
+        <td>{{ $datadepartment->name}}</td>
     </tr>
     <tr>
         <td>Rola:</td>
         <td>{{ Auth::user()->role }}</td>
     </tr>
+@if (Auth::user()->specialization != 'NULL')
+    <tr>
+        <td>Specjalizacja:</td>
+        <td>{{ Auth::user()->specialization }}</td>
+    </tr>
+@endif
+    
 </table>
 @endif
 
@@ -82,7 +93,7 @@
 <table align="center"  style="width: 40%;" class="table">
     <tr>
         <td>Numer pracownika (login):</td>
-        <td>{{ Auth::user()->albumnumber }}</td>
+        <td>{{ Auth::user()->id }}</td>
     </tr>
     <tr>
         <td>Imię:</td>

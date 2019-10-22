@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'albumnumber','name','lastname','typestudy','levelstudy','department','direction', 'email', 'password',
+        'id','name','lastname','typestudy','levelstudy','department','direction', 'email', 'password',
     ];
 
     /**
@@ -26,4 +26,21 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    public function aboutdepartment(){
+        return $this->belongsTo(Department::class, 'id');
+    }
+
+    public function aboutdirection(){
+        return $this->belongsTo(Direction::class, 'id');
+    }
+
+    public function aboutlevelstudy(){
+        return $this->belongsTo(Levelstudy::class, 'id');
+    }
+
+    public function abouttypestudy(){
+        return $this->belongsTo(Typestudy::class, 'id');
+    }
 }
