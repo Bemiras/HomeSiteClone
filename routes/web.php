@@ -39,6 +39,8 @@ Route::get('/pendingapplication/updateYesDormitory/{id}', 'PendingapplicationCon
 Route::get('/pendingapplication/updateNoDormitory/{id}', 'PendingapplicationController@updateNoDormitory');
 Route::get('/pendingapplication/updateYesCard/{id}', 'PendingapplicationController@updateYesCard');
 Route::get('/pendingapplication/updateNoCard/{id}', 'PendingapplicationController@updateNoCard');
+Route::get('/pendingapplication/updateYesPromoter/{id}', 'PendingapplicationController@updateYesPromoter');
+Route::get('/pendingapplication/updateNoPromoter/{id}', 'PendingapplicationController@updateNoPromoter');
 
 Route::get('/consideredapplication', 'ConsideredapplicationController@index');
 

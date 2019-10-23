@@ -7,7 +7,7 @@
 
 <h2 style="text-align: center">PANEL - Karta obiegowa</h2>
 
-@if (Auth::check() && Auth::user()->role == 'student' && Auth::user()->card == 'brak')
+@if (Auth::check() && Auth::user()->role == 'student' && Auth::user()->card == 'Brak')
 <div class="panel-body" align="center">
 <h3>Wypełnij dane aby wysłać podanie o uruchomienie karty obiegowej </h3>
 
@@ -19,6 +19,25 @@
         <input align="center"  style="width: 40%;" type="number" class="form-control" name="number_commission" />
     </div>
 
+    <label for="title">Nazwa komisji</label>
+    <div>
+
+        <select align="center"  style="width: 40%;" name="name">
+            @foreach ($commissions as $commission)
+            <option value="{{ $commission->id}}">{{ $commission->name }} </option>
+            @endforeach
+        </select>
+    </div>
+
+    <label for="title">Promotor</label>
+    <div>
+
+        <select align="center"  style="width: 40%;" name="promoter">
+            @foreach ($promoters as $promoter)
+            <option value="{{ $promoter->id}}">{{ $promoter->name }} {{ $promoter->lastname }}</option>
+            @endforeach
+        </select>
+    </div>
 
     <input type="submit" value="Wyślij" class="btn btn-primary" />
 </form>
@@ -31,22 +50,26 @@
 <table align="center"  style="width: 40%;" class="table">
  
     @foreach ($cardlist as $card)
-    <tr>
+    <tr><br>
         <tr>
-            <td>Akademik:</td>
+            <td><h5>Akademik:</h5></td>
             <td>{{ $card->dormitory }}</td>
         </tr>
         <tr>
-            <td>Biblioteka:</td>
+            <td><h5>Biblioteka:</h5></td>
             <td>{{ $card->liblary }}</td>
         </tr>
         <tr>
-            <td>Dziekanat:</td>
+            <td><h5>Dziekanat:</h5></td>
             <td>{{ $card->deanery }}</td> 
+        </tr>
+        <tr>
+            <td><h5>Promotor:</h5></td>
+            <td>{{ $card->promoter }}</td>
         </tr>
     </tr>
     @endforeach
-@if($card->dormitory == 'zakonczona' && $card->liblary == 'zakonczona' && $card->deanery == 'zakonczona')
+@if($card->dormitory == 'zakonczona' && $card->liblary == 'zakonczona' && $card->deanery == 'zakonczona' && $card->promoter == 'zakonczona')
     <input type="submit" value="Wyślij kartę" class="btn btn-primary" />
         Auth::user()->card = 'zakonczona';
     @endif
@@ -68,7 +91,7 @@
 
 @endif
 
-@if (Auth::check() && Auth::user()->role == 'student' && Auth::user()->card == 'bledne dane')
+@if (Auth::check() && Auth::user()->role == 'student' && Auth::user()->card == 'Bledne dane')
 <br>
 <h4 align="center">Twoja proźba o uruchomnienie karty obiegowej została zakończona niepowodzeniem. </h4>
 <h5 align="center">Prosimy o ponowne wypełnienie wniosku . </h5>

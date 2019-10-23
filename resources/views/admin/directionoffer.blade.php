@@ -7,14 +7,11 @@
 
 <h2 style="text-align: center">PANEL - Kierunki </h2>
 
-<div align="center" class="panel-body">
-    <a style="width: 40%;" href="{{ action('DirectionofferController@create') }}" class="btn btn-info">Dodaj kierunek</a>
-</div>
 
 <table align="center"  style="width: 40%;" class="table">
     <thead>
     <tr>
-        <th>Kierunek</th>
+        <th><h4>Kierunek:</h4></th>
         <th></th>
         <th></th>
     </tr>
@@ -23,13 +20,16 @@
     @foreach ($userlist as $user)
     <tr>
         <th>{{$user->name}}</th>
-        <th><a href="{{ action('DirectionofferController@edit', $user->id) }}" >Edytuj</a></th>
-        <th><a href="{{ action('DirectionofferController@destroy', $user->id) }}" >Usuń</a></th>
-
+        <th><a  href="{{ action('DirectionofferController@edit', $user->id) }}"><img src={{ asset('images/edit.png') }}  /></a></th>
+        <th><a  href="{{ action('DirectionofferController@destroy', $user->id) }}"><img src={{ asset('images/delete.png') }}  /></a></th>
     </tr>
     @endforeach
     </tbody>
 </table>
+
+<div align="center" class="panel-body">
+    <a style="width: 40%;" href="{{ action('DirectionofferController@create') }}" class="btn btn-info">Dodaj kierunek</a>
+</div>
 
 
 

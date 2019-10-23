@@ -52,6 +52,15 @@ class PendingapplicationController
 
         return redirect()->action('PendingapplicationController@index');
     }
+
+    public function updateYesPromoter($id)
+    {
+        DB::table('Cards')
+            ->where('id', $id)
+            ->update(['promoter' => 'Zakonczona']);
+
+        return redirect()->action('PendingapplicationController@index');
+    }
     
     public function updateNoDeanery($id)
     {
@@ -78,6 +87,15 @@ class PendingapplicationController
         DB::table('Cards')
             ->where('id', $id)
             ->update(['dormitory' => 'Niepowodzenie']);
+
+        return redirect()->action('PendingapplicationController@index');
+    }
+
+    public function updateNoPromoter($id)
+    {
+        DB::table('Cards')
+            ->where('id', $id)
+            ->update(['promoter' => 'Niepowodzenie']);
 
         return redirect()->action('PendingapplicationController@index');
     }

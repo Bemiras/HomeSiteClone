@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->integer('department')->unsigned();
             $table->integer('direction')->unsigned();
             $table->string('role')->default('student');
-            $table->string('card')->default('brak');
+            $table->string('card')->default('Brak');
             $table->integer('id_card')->unsigned()->nullable();
             $table->string('specialization')->nullable();
             $table->rememberToken();

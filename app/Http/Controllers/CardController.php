@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Card;
 use App\User;
+use App\Commission;
 use Request;
 use App\Repositories\CardRepository;
 use Illuminate\Support\Facades\DB;
@@ -22,7 +23,14 @@ class CardController extends Controller
             })
             ->get();
 
-            return view('student.card',["cardlist"=>$card]);
+            $promoter = DB::table('Users')
+                    ->where('Users.specialization', '=', 'promotor')
+                    ->get();
+
+            $commission = DB::table('Commissions')
+                    ->get();
+
+            return view('student.card',["cardlist"=>$card, "promoters"=>$promoter, "commissions"=>$commission]);
 
     }
 
@@ -32,7 +40,9 @@ class CardController extends Controller
         ['liblary' => 'W trakcie',
          'dormitory' => 'W trakcie',
          'deanery' => 'W trakcie',
-         'commission_id' => Request('number_commission')
+         'promoter' => 'W trakcie',
+        'commission_id' => Request('number_commission'),
+        'userPromoter' => Request('promoter')
         ]);
 
         $card = DB::table('Cards')->max('id');
