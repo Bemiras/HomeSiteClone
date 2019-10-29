@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+{ HTML::style('css/images.css') }
 
 
 
