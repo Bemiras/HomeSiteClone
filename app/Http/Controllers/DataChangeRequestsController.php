@@ -18,8 +18,9 @@ class DataChangeRequestsController extends Controller
         return view ('dataChangeRequests');
     }
 
-    public function edit(/*array $data*/)
+    public function update(array $data)
     {
+        var_dump($data);
         $arrayOfData = array(
             'name' => 'Bartek',
             'nazwisko' => 'Flis',
@@ -34,5 +35,9 @@ class DataChangeRequestsController extends Controller
 //        foreach ($users as $user) {
 //            echo $user->name. "<br>";
 //        }
+    }
+
+    public function applicationForChangeData(){
+    echo 'dupa';
     }
 }
