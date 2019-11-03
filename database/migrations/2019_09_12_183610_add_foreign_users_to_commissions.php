@@ -14,7 +14,7 @@ class AddForeignUsersToCommissions extends Migration
     public function up()
     {
         Schema::table('commissions',function (Blueprint $table){
-            $table->foreign('usernumber_commission')->references('id')->on('users');
+            $table->foreign('usernumber_commission')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

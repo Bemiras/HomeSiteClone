@@ -14,7 +14,7 @@ class AddForeignComissionsToCard extends Migration
     public function up()
     {
         Schema::table('cards',function (Blueprint $table){
-            $table->foreign('commission_id')->references('id')->on('commissions');
+            $table->foreign('commission_id')->references('id')->on('commissions')->onDelete('cascade');
         });
     }
 

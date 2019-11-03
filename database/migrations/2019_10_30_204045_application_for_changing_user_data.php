@@ -16,7 +16,7 @@ class ApplicationForChangingUserData extends Migration
         Schema::create('chang_application', function (Blueprint $table) {
             $table->integer('id')->unique();
             //$table->integer('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');;
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('name');
             $table->string('lastname');
             $table->string('password');

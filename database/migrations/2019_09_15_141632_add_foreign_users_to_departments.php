@@ -14,7 +14,7 @@ class AddForeignUsersToDepartments extends Migration
     public function up()
     {
         Schema::table('users',function (Blueprint $table){
-            $table->foreign('department')->references('id')->on('departments');
+            $table->foreign('department')->references('id')->on('departments')->onDelete('cascade');
         });
     }
 

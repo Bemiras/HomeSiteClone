@@ -14,7 +14,7 @@ class AddForeignUsersToLevelsstudy extends Migration
     public function up()
     {
         Schema::table('users',function (Blueprint $table){
-            $table->foreign('levelstudy')->references('id')->on('levelsstudy');
+            $table->foreign('levelstudy')->references('id')->on('levelsstudy')->onDelete('cascade');
         });
     }
 
