@@ -14,9 +14,10 @@ class ApplicationForChangingUserData extends Migration
     public function up()
     {
         Schema::create('chang_application', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+
             $table->integer('id')->unique();
-            //$table->integer('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('user_id');
             $table->string('name');
             $table->string('lastname');
             $table->string('password');
@@ -28,6 +29,11 @@ class ApplicationForChangingUserData extends Migration
             //$table->rememberToken();
             $table->timestamps();
         });
+
+        Schema::table('chang_application',function (Blueprint $table){
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+        });
+
     }
 
     /**
