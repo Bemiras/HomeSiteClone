@@ -6,7 +6,6 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Edycja Danych</div>
-
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
@@ -15,8 +14,7 @@
                             <label for="name" class="col-md-4 control-label">Imie użytkownika</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
-
+                                <input id="name" type="text" style="color: #C0C0C0" class="form-control" name="name" value="{{ Auth::user()->name }}" required autofocus>
                                 @if ($errors->has('name'))
                                 <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
@@ -29,7 +27,7 @@
                             <label for="lastname" class="col-md-4 control-label">Nazwisko użytkownika</label>
 
                             <div class="col-md-6">
-                                <input id="lastname" type="text" class="form-control" name="lastname" value="{{ old('lastname') }}" required>
+                                <input id="lastname" type="text" style="color: #C0C0C0" class="form-control" name="lastname" value="{{ Auth::user()->lastname }}" required>
 
                                 @if ($errors->has('lastname'))
                                 <span class="help-block">
@@ -43,7 +41,7 @@
                             <label for="email" class="col-md-4 control-label">Adres E-Mail</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                                <input id="email" type="email" style="color: #C0C0C0" class="form-control" name="email" value="{{ Auth::user()->email }}" required>
 
                                 @if ($errors->has('email'))
                                 <span class="help-block">
@@ -52,44 +50,6 @@
                                 @endif
                             </div>
                         </div>
-
-                        <div class="form-group{{ $errors->has('id') ? ' has-error' : '' }}">
-                            <label for="id" class="col-md-4 control-label">Numer albumu</label>
-
-                            <div class="col-md-6">
-                                <input maxlength="5" id="id" type="number" class="form-control" name="id" value="{{ old('id') }}" required autofocus>
-
-                                @if ($errors->has('id'))
-                                <span class="help-block">
-                                        <strong>{{ $errors->first('id') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Hasło</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Powtórz hasło</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-
 
                         <div class="form-group{{ $errors->has('department') ? ' has-error' : '' }}">
                             <label for="department" class="col-md-4 control-label">Wydział</label>
@@ -164,12 +124,11 @@
                                 @endif
                             </div>
                         </div>
-
-
+                        <div class="panel-heading" style="color: #C0C0C0"> Po wysłaniu danych do edycji należy poczekać na potwierdzenie przez Administatora. </div>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Zarejestruj
+                                    Wyślij
                                 </button>
                             </div>
                         </div>

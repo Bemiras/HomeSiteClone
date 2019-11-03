@@ -136,22 +136,21 @@
                                 </a>
 
                                 <ul class="dropdown-menu">
+                                    @if (Auth::check() && Auth::user()->role == 'student' || Auth::user()->role == 'pracownik')
+                                    <li>
+                                        <a class="nav-link" href="{{ URL::to('dataChangeRequests') }}">Edycja danych</a>
+                                    </li>
+                                    @endif
+
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             Logout
                                         </a>
-
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
-
-                                        @if (Auth::check() && Auth::user()->role == 'student' || Auth::user()->role == 'pracownik')
-                                        <li>
-                                            <a class="nav-link" href="{{ URL::to('dataChangeRequests') }}">Edycja danych</a>
-                                        </li>
-                                    @endif
                                     </li>
                                 </ul>
                             </li>

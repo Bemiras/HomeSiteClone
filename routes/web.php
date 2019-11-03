@@ -77,8 +77,6 @@ Route::post('/commissions/update','CommissionsController@update');
 Route::get('/commissions/edit/{id}', 'CommissionsController@edit');
 
 Route::get('/dataChangeRequests', 'dataChangeRequestsController@index');
-Route::put('/dataChangeRequests1/{name?}/{lastname?}/', 'dataChangeRequestsController@update');
-
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');

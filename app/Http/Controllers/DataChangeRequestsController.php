@@ -38,6 +38,6 @@ class DataChangeRequestsController extends Controller
     }
 
     public function applicationForChangeData(){
-    echo 'dupa';
+    //echo 'dupa';
     }
 }
