@@ -19,4 +19,6 @@ class UserlistController
 
         return view('admin.userlist',["userlist"=>$users]);
     }
+
+
 }

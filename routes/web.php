@@ -61,6 +61,8 @@ Route::post('/directionoffer/update','DirectionofferController@update');
 Route::get('/directionoffer/edit/{id}', 'DirectionofferController@edit');
 
 Route::get('/userrole', 'UserroleController@index');
+Route::get('/userrole/edit/{id}', 'UserroleController@edit');
+Route::post('/userrole/update','UserroleController@update');
 
 Route::get('/dataapplication', 'DataapplicationController@index');
 

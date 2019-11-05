@@ -92,6 +92,34 @@
     </tbody>
 </table>
 
+@elseif ( Auth::user()->specialization == 'promotor' )
+<table align="center"  style="width: 40%;" class="table">
+    <thead>
+    <tr>
+        <th>Numer studenta</th>
+        <th>Imię</th>
+        <th>Nazwisko</th>
+        <th>WPIS Promotor</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    @foreach ($userlist as $user)
+    <tr>
+        @if ($user->promoter == 'W trakcie' && $user->card == 'W realizacji' && Auth::user()->id == $user->userPromoter)
+        <th scope="row">{{$user->id}}</th>
+        <th>{{$user->name}}</th>
+        <th>{{$user->lastname}}</th>
+        <th>{{$user->promoter}}</th>
+        <th><a  href="{{ action('PendingapplicationController@updateYesPromoter', $user->id_card) }}"><img src={{ asset('images/akcept.png') }}  /></a></th>
+        <th><a  href="{{ action('PendingapplicationController@updateNoPromoter', $user->id_card) }}"><img src={{ asset('images/notAkcept.png') }}  /></a></th>
+        @endif
+    </tr>
+    @endforeach
+    </tbody>
+</table>
+
+
 @elseif ( Auth::user()->specialization == 'sekretarz' )
 <table align="center"  style="width: 40%;" class="table">
     <thead>
@@ -107,8 +135,8 @@
     <tbody>
     @foreach ($userlist as $user)
     <tr>
-    @if ($user->card == 'Rozpatrzenie' && $user->commission_id == 3)
-        <th scope="row">{{$user->id}}</th>
+    @if ($user->card == 'Rozpatrzenie' && $user->commission_name == commission_name) // Tutaj trzeba zrobić tak żeby brało nazwę komisji zalogowanego
+        <th scope="row">{{$user->id}}</th>                                                 sekretarza z nazwa komisji studenta.
         <th>{{$user->name}}</th>
         <th>{{$user->lastname}}</th>
         <th>{{$user->department}}</th>

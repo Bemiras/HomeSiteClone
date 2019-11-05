@@ -2,7 +2,6 @@
 
 
 
-
 @section('content')
 
 <h2 style="text-align: center">PANEL - Moje dane</h2>

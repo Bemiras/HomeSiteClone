@@ -29,7 +29,6 @@ class CardController extends Controller
 
             $commission = DB::table('Commissions')
                     ->get();
-
             return view('student.card',["cardlist"=>$card, "promoters"=>$promoter, "commissions"=>$commission]);
 
     }
