@@ -2,20 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use App\ApplicationForChangingData;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-
+use App\User;
 class DataChangeRequestsController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
     }
+
     public function index()
     {
+        $dataToChange = ApplicationForChangingData::where('user_id',Auth::user()->id)->get();
 
-        return view ('dataChangeRequests');
+        //$dataToChange = ApplicationForChangingData::all();
+        var_dump($dataToChange);
+        return view ('dataChangeRequests', ["isDataToChangeExist" => $dataToChange]);
     }
 
     public function update(array $data)
@@ -37,7 +42,13 @@ class DataChangeRequestsController extends Controller
 //        }
     }
 
-    public function applicationForChangeData(){
-    //echo 'dupa';
+    public function sendApplicationForChangingData(Request $request){
+        //return redirect('dataChangeRequests');
+        return "echo xD";
     }
+
+    public function applicationForChangeData(){
+
+    }
+
 }

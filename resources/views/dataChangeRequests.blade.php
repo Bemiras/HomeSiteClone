@@ -7,7 +7,10 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Edycja Danych</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                    @if(!count($isDataToChangeExist) == 0)
+                    <div class="panel-heading"> Po wysłaniu danych do edycji należy poczekać na potwierdzenie przez Administatora. </div>
+                    @else
+                    <form class="form-horizontal" method="POST" action="/sendApplicationForChangingData">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -133,6 +136,7 @@
                             </div>
                         </div>
                     </form>
+                    @endif
                 </div>
             </div>
         </div>
