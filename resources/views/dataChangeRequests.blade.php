@@ -8,6 +8,7 @@
                 <div class="panel-heading">Edycja Danych</div>
                 <div class="panel-body">
                     @if(!count($isDataToChangeExist) == 0)
+
                     <div class="panel-heading"> Po wysłaniu danych do edycji należy poczekać na potwierdzenie przez Administatora. </div>
                     @else
                     <form class="form-horizontal" method="POST" action="/sendApplicationForChangingData">

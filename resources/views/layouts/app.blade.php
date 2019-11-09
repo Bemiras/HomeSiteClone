@@ -84,7 +84,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ URL::to('about') }}">Moje dane</a>
                         </li>
-
                          <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                     Oferta edukacyjna <span class="caret"></span>
@@ -110,7 +109,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ URL::to('dataapplication') }}">Podania o zmianę danych</a>
+                            <a class="nav-link" href="{{ URL::to('applicationToAccept') }}">Podania o zmianę danych</a>
                         </li>
 
                         <li class="nav-item">

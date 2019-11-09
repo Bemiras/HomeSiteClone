@@ -17,15 +17,47 @@ class DataChangeRequestsController extends Controller
     public function index()
     {
         $dataToChange = ApplicationForChangingData::where('user_id',Auth::user()->id)->get();
-
-        //$dataToChange = ApplicationForChangingData::all();
-        var_dump($dataToChange);
         return view ('dataChangeRequests', ["isDataToChangeExist" => $dataToChange]);
+    }
+    public function sendApplicationForChangingData(Request $request){
+        $dataToStore = new ApplicationForChangingData;
+
+        $dataToStore->user_id = Auth::user()->id;
+        $dataToStore->name = $request->input('name');
+        $dataToStore->lastname = $request->input('lastname');
+        $dataToStore->typestudy = $request->input('typestudy');
+        $dataToStore->levelstudy = $request->input('levelstudy');
+        $dataToStore->department = $request->input('department');
+        $dataToStore->direction = $request->input('direction');
+        $dataToStore->specialization = $request->input('specialization');
+        $dataToStore->save();
+        return redirect('dataChangeRequests');
+    }
+
+    public function acceptEditChange(Request $request){
+        $userUpdateData = User::findOrFail(Auth::id());
+        $applicationUpdateData = ApplicationForChangingData::where('user_id',Auth::user()->id)->first();
+        //var_dump(ApplicationForChangingData::where('user_id',Auth::user()->id));
+        //$user = ApplicationForChangingData::where('user_id',Auth::user()->id);
+
+        $userUpdateData->fill([
+            'name' => $applicationUpdateData->name,
+            'lastname' => $applicationUpdateData->lastname,
+            'typestudy' => $applicationUpdateData->typestudy,
+            'levelstudy' => $applicationUpdateData->levelstudy,
+            'department' => $applicationUpdateData->department,
+            'direction' => $applicationUpdateData->direction,
+            'specialization' => $applicationUpdateData->specialization
+        ]);
+        $userUpdateData -> save();
+        $applicationUpdateData->delete();
+
+        return redirect('dataChangeRequests');
     }
 
     public function update(array $data)
     {
-        var_dump($data);
+        //var_dump($data);
         $arrayOfData = array(
             'name' => 'Bartek',
             'nazwisko' => 'Flis',
@@ -40,15 +72,6 @@ class DataChangeRequestsController extends Controller
 //        foreach ($users as $user) {
 //            echo $user->name. "<br>";
 //        }
-    }
-
-    public function sendApplicationForChangingData(Request $request){
-        //return redirect('dataChangeRequests');
-        return "echo xD";
-    }
-
-    public function applicationForChangeData(){
-
     }
 
 }

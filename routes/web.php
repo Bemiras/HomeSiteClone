@@ -78,6 +78,11 @@ Route::get('/commissions/edit/{id}', 'CommissionsController@edit');
 
 Route::get('/dataChangeRequests', 'dataChangeRequestsController@index');
 Route::post('/sendApplicationForChangingData', 'dataChangeRequestsController@sendApplicationForChangingData');
+
+Route::get('/applicationToAccept', 'ApplicationToAccept@index');
+Route::post('/acceptEditChange/{id?}', 'ApplicationToAccept@acceptEditChange');
+Route::post('/dismissEditChange/{id}', 'ApplicationToAccept@dismissEditChange');
+
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
