@@ -14,7 +14,7 @@ class AddForeignUserPromoterToCard extends Migration
     public function up()
     {
         Schema::table('cards',function (Blueprint $table){
-            $table->foreign('userPromoter')->references('id')->on('users');
+            $table->foreign('userPromoter')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

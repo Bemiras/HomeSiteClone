@@ -13,7 +13,7 @@
 
 
 
-<table align="center"  style="width: 75%;" class="table">
+<table align="center"  style="width: 40%;" class="table">
     <thead>
     <tr>
         <th>Numer komisji</th>

@@ -14,7 +14,7 @@ class AddForeignUsersToCard extends Migration
     public function up()
     {
         Schema::table('users',function (Blueprint $table){
-            $table->foreign('id_card')->references('id')->on('cards');
+            $table->foreign('id_card')->references('id')->on('cards')->onDelete('cascade');
         });
     }
 
