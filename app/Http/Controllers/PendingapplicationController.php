@@ -7,6 +7,7 @@ use App\User;
 use App\Card;
 use App\Department;
 use App\Direction;
+use App\Commission;
 use Request;
 use App\Repositories\UserRepository;
 use App\Repositories\CardRepository;
@@ -17,13 +18,18 @@ class PendingapplicationController
 {
     public function index(){
 
-            $users = DB::table('Cards')
-            ->join('Users', function ($join) {
-            $join->on('Users.id_card', '=', 'Cards.id');
-            })
+        $users = DB::table('users')
+            ->join('cards','cards.id','=','users.id_card')
+            ->join('commissions','commissions.number_commission','=','commission_id')
+            ->join('departments', 'departments.id', '=', 'users.department')
+            ->join('directions', 'directions.id', '=', 'users.direction')
+            ->select('users.*','users.id AS id_student','users.name AS name_student','commissions.number_commission AS number_commission',
+                'cards.commission_id AS commission_id','departments.name AS name_department','directions.name AS name_direction',
+                'commissions.usernumber_commission AS usernumber_commission')
             ->get();
-
+        
         return view('worker.pendingapplication',["userlist"=>$users]);
+
     }
 
     public function updateYesDeanery($id)
@@ -34,7 +40,17 @@ class PendingapplicationController
 
         return redirect()->action('PendingapplicationController@index');
     }
-    
+
+    public function updateNoDeanery($id)
+    {
+        DB::table('Cards')
+            ->where('id', $id)
+            ->update(['deanery' => 'Niepowodzenie',
+                'commente' => Request('commente')]);
+
+        return redirect()->action('PendingapplicationController@index');
+    }
+
     public function updateYesLiblary($id)
     {
         DB::table('Cards')
@@ -58,16 +74,6 @@ class PendingapplicationController
         DB::table('Cards')
             ->where('id', $id)
             ->update(['promoter' => 'Zakonczona']);
-
-        return redirect()->action('PendingapplicationController@index');
-    }
-    
-    public function updateNoDeanery($id)
-    {
-            DB::table('Cards')
-            ->where('id', $id)
-            ->update(['deanery' => 'Niepowodzenie',  
-                     'commente' => Request('commente')]);
 
         return redirect()->action('PendingapplicationController@index');
     }

@@ -133,14 +133,14 @@
     </tr>
     </thead>
     <tbody>
-    @foreach ($userlist as $user)
+    @foreach ($userlist->unique('name') as $user)
     <tr>
-    @if ($user->card == 'Rozpatrzenie' && $user->commission_name == commission_name) // Tutaj trzeba zrobić tak żeby brało nazwę komisji zalogowanego
-        <th scope="row">{{$user->id}}</th>                                                 sekretarza z nazwa komisji studenta.
-        <th>{{$user->name}}</th>
+        @if ($user->card == 'Rozpatrzenie' && $user->commission_id == $user->number_commission && Auth::user()->id == $user->usernumber_commission)
+        <th scope="row">{{$user->id_student}}</th>
+        <th>{{$user->name_student}}</th>
         <th>{{$user->lastname}}</th>
-        <th>{{$user->department}}</th>
-        <th>{{$user->direction}}</th>
+        <th>{{$user->name_department}}</th>
+        <th>{{$user->name_direction}}</th>
         <th><a  href="{{ action('PendingapplicationController@updateYesCard', $user->id) }}"><img src={{ asset('images/akcept.png') }}  /></a></th>
         <th><a  href="{{ action('PendingapplicationController@updateNoCard', $user->id) }}"><img src={{ asset('images/notAkcept.png') }}  /></a></th>
     @endif
