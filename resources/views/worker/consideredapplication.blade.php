@@ -44,7 +44,7 @@
         <th>Imię</th>
         <th>Nazwisko</th>
         <th>WPIS Biblioteka</th>
-        <th>Anuluj wpis</th>
+        <th>Anuluj</th>
         
     </tr>
     </thead>
