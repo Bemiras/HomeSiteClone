@@ -38,8 +38,6 @@ class DataChangeRequestsController extends Controller
     public function acceptEditChange(Request $request){
         $userUpdateData = User::findOrFail(Auth::id());
         $applicationUpdateData = ApplicationForChangingData::where('user_id',Auth::user()->id)->first();
-        //var_dump(ApplicationForChangingData::where('user_id',Auth::user()->id));
-        //$user = ApplicationForChangingData::where('user_id',Auth::user()->id);
 
         $userUpdateData->fill([
             'name' => $applicationUpdateData->name,
@@ -55,24 +53,4 @@ class DataChangeRequestsController extends Controller
 
         return redirect('dataChangeRequests');
     }
-
-    public function update(array $data)
-    {
-        //var_dump($data);
-        $arrayOfData = array(
-            'name' => 'Bartek',
-            'nazwisko' => 'Flis',
-            'adresEmail' => 'Bartek.Flis@Test.pl'
-        );
-
-        //check if record exist
-        if(DB::table('users')->where('id',\Auth::user()->id )->first()){
-            $users = DB::table('users')->where('id',\Auth::user()->id )->update(['name'=>$arrayOfData['name'], 'lastname'=>$arrayOfData['nazwisko'], 'email'=>$arrayOfData['adresEmail']]);
-        }
-        //echo $users[0]->lastname;
-//        foreach ($users as $user) {
-//            echo $user->name. "<br>";
-//        }
-    }
-
 }

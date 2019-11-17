@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 use App\Commission;
 use App\Repositories\UserRepository;
 use App\User;
+use Illuminate\Http\Request;
 
 class UserroleController
 {
@@ -28,6 +29,25 @@ class UserroleController
         $worker->specialization =  Request::input('specialization');
         $worker->save();
         return redirect()->action('UserroleController@index');
+    }
+
+    public function showRegistrations(){
+        return view('admin.employeeRegistrations');
+    }
+
+    public function regiserEmployee(Request $request){
+        $data = new User();
+
+        $data->name = $request->input('name');
+        $data->lastname = $request->input('lastname');
+        $data->email = $request -> input('email');
+        $data->id = $request -> input('id');
+        $data->department = $request->input('department');
+        $data->password = bcrypt($request -> input('password'));
+        $data->role = 'pracownik';
+        $data->save();
+
+        return redirect('userrole');
     }
 
 }
