@@ -21,7 +21,7 @@ class DataChangeRequestsController extends Controller
     }
     public function sendApplicationForChangingData(Request $request){
         $dataToStore = new ApplicationForChangingData;
-        if(Auth::user()->role == 'student'){
+
             $dataToStore->user_id = Auth::user()->id;
             $dataToStore->name = $request->input('name');
             $dataToStore->lastname = $request->input('lastname');
@@ -31,25 +31,13 @@ class DataChangeRequestsController extends Controller
             $dataToStore->direction = $request->input('direction');
             $dataToStore->specialization = $request->input('specialization');
             $dataToStore->save();
-        }elseif (Auth::user()->role = 'pracownik'){
-            $dataToStore->user_id = Auth::user()->id;
-            $dataToStore->name = $request->input('name');
-            $dataToStore->lastname = $request->input('lastname');
-            $dataToStore->typestudy = null;
-            $dataToStore->levelstudy = null;
-            $dataToStore->department = null;
-            $dataToStore->direction = null;
-            $dataToStore->specialization = null;
-            $dataToStore->save();
-        }
+
         return redirect('dataChangeRequests');
     }
 
     public function acceptEditChange(Request $request){
         $userUpdateData = User::findOrFail(Auth::id());
         $applicationUpdateData = ApplicationForChangingData::where('user_id',Auth::user()->id)->first();
-        //var_dump(ApplicationForChangingData::where('user_id',Auth::user()->id));
-        //$user = ApplicationForChangingData::where('user_id',Auth::user()->id);
 
         $userUpdateData->fill([
             'name' => $applicationUpdateData->name,
@@ -65,24 +53,4 @@ class DataChangeRequestsController extends Controller
 
         return redirect('dataChangeRequests');
     }
-
-    public function update(array $data)
-    {
-        //var_dump($data);
-        $arrayOfData = array(
-            'name' => 'Bartek',
-            'nazwisko' => 'Flis',
-            'adresEmail' => 'Bartek.Flis@Test.pl'
-        );
-
-        //check if record exist
-        if(DB::table('users')->where('id',\Auth::user()->id )->first()){
-            $users = DB::table('users')->where('id',\Auth::user()->id )->update(['name'=>$arrayOfData['name'], 'lastname'=>$arrayOfData['nazwisko'], 'email'=>$arrayOfData['adresEmail']]);
-        }
-        //echo $users[0]->lastname;
-//        foreach ($users as $user) {
-//            echo $user->name. "<br>";
-//        }
-    }
-
 }

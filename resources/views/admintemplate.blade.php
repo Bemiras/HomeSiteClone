@@ -29,7 +29,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" >Role użytkowników</a>
+                <a class="nav-link" Pracownicy</a>
             </li>
 
              <li class="nav-item">

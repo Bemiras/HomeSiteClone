@@ -76,7 +76,7 @@
         <td>Rola:</td>
         <td>{{ Auth::user()->role }}</td>
     </tr>
-@if (Auth::user()->specialization != 'NULL')
+@if (Auth::user()->specialization != NULL)
     <tr>
         <td>Specjalizacja:</td>
         <td>{{ Auth::user()->specialization }}</td>

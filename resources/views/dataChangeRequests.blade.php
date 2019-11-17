@@ -54,7 +54,6 @@
                             </div>
                         </div>
 
-                        @if (Auth::user()->role == 'student')
                         <div class="form-group{{ $errors->has('department') ? ' has-error' : '' }}">
                             <label for="department" class="col-md-4 control-label">Wydział</label>
 
@@ -72,7 +71,6 @@
                                 @endif
                             </div>
                         </div>
-                        @endif
 
                         @if (Auth::user()->role == 'student')
                         <div class="form-group{{ $errors->has('direction') ? ' has-error' : '' }}">
