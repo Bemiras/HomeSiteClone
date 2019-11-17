@@ -21,7 +21,7 @@ class DataChangeRequestsController extends Controller
     }
     public function sendApplicationForChangingData(Request $request){
         $dataToStore = new ApplicationForChangingData;
-        if(Auth::user()->role == 'student'){
+
             $dataToStore->user_id = Auth::user()->id;
             $dataToStore->name = $request->input('name');
             $dataToStore->lastname = $request->input('lastname');
@@ -31,17 +31,7 @@ class DataChangeRequestsController extends Controller
             $dataToStore->direction = $request->input('direction');
             $dataToStore->specialization = $request->input('specialization');
             $dataToStore->save();
-        }elseif (Auth::user()->role = 'pracownik'){
-            $dataToStore->user_id = Auth::user()->id;
-            $dataToStore->name = $request->input('name');
-            $dataToStore->lastname = $request->input('lastname');
-            $dataToStore->typestudy = null;
-            $dataToStore->levelstudy = null;
-            $dataToStore->department = null;
-            $dataToStore->direction = null;
-            $dataToStore->specialization = null;
-            $dataToStore->save();
-        }
+
         return redirect('dataChangeRequests');
     }
 
