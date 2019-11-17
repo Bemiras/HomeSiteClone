@@ -11,17 +11,15 @@ class applicationToAccept extends Controller
 {
     public function index(){
         $dataToChange = ApplicationForChangingData::all();
-        $indexNumer = User::all();
-        return view ('ApplicationToAccept',["dataToChange" => $dataToChange, "indexNumer" => $indexNumer]);
+        $userData = User::all();
+        return view ('ApplicationToAccept',["dataToChange" => $dataToChange, "userData" => $userData]);
     }
 
     public function acceptEditChange(Request $request, $userId){
 
-            //$userUpdateData = User::findOrFail(Auth::id());
             $userUpdateData = User::where('id', $userId)->first();
             $applicationUpdateData = ApplicationForChangingData::where('user_id', $userId)->first();
-            //var_dump(ApplicationForChangingData::where('user_id',Auth::user()->id));
-            //$user = ApplicationForChangingData::where('user_id',Auth::user()->id);
+
 
             $userUpdateData->fill([
                 'name' => $applicationUpdateData->name,

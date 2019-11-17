@@ -8,7 +8,6 @@
                 <div class="panel-heading">Edycja Danych</div>
                 <div class="panel-body">
                     @if(!count($isDataToChangeExist) == 0)
-
                     <div class="panel-heading"> Po wysłaniu danych do edycji należy poczekać na potwierdzenie przez Administatora. </div>
                     @else
                     <form class="form-horizontal" method="POST" action="/sendApplicationForChangingData">
@@ -55,6 +54,7 @@
                             </div>
                         </div>
 
+                        @if (Auth::user()->role == 'student')
                         <div class="form-group{{ $errors->has('department') ? ' has-error' : '' }}">
                             <label for="department" class="col-md-4 control-label">Wydział</label>
 
@@ -72,7 +72,9 @@
                                 @endif
                             </div>
                         </div>
+                        @endif
 
+                        @if (Auth::user()->role == 'student')
                         <div class="form-group{{ $errors->has('direction') ? ' has-error' : '' }}">
                             <label for="directiont" class="col-md-4 control-label">Kierunek</label>
 
@@ -90,8 +92,9 @@
                                 @endif
                             </div>
                         </div>
+                        @endif
 
-
+                        @if (Auth::user()->role == 'student')
                         <div class="form-group{{ $errors->has('levelstudy') ? ' has-error' : '' }}">
                             <label for="levelstudy" class="col-md-4 control-label">Poziom nauki</label>
 
@@ -109,8 +112,9 @@
                                 @endif
                             </div>
                         </div>
+                        @endif
 
-
+                        @if (Auth::user()->role == 'student')
                         <div class="form-group{{ $errors->has('typestudy') ? ' has-error' : '' }}">
                             <label for="typestudy" class="col-md-4 control-label">Tok nauki</label>
 
@@ -128,6 +132,8 @@
                                 @endif
                             </div>
                         </div>
+                        @endif
+
                         <div class="panel-heading" style="color: #C0C0C0"> Po wysłaniu danych do edycji należy poczekać na potwierdzenie przez Administatora. </div>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

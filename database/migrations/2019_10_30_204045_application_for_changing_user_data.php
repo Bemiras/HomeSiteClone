@@ -20,11 +20,11 @@ class ApplicationForChangingUserData extends Migration
             $table->integer('user_id');
             $table->string('name');
             $table->string('lastname');
-            $table->integer('typestudy')->unsigned();
-            $table->integer('levelstudy')->unsigned();
-            $table->integer('department')->unsigned();
-            $table->integer('direction')->unsigned();
-            $table->string('specialization')->nullable();
+            $table->integer('typestudy')->unsigned()->nullable();
+            $table->integer('levelstudy')->unsigned()->nullable();
+            $table->integer('department')->unsigned()->nullable();
+            $table->integer('direction')->unsigned()->nullable();
+            $table->string('specialization')->nullable()->nullable();
             //$table->rememberToken();
             $table->timestamps();
         });

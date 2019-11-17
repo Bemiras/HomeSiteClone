@@ -11,6 +11,7 @@
                                 <thead>
                                 <tr>
                                     <th>Numer studenta/pracownika</th>
+                                    <th>Rola</th>>
                                     <th>Imię</th>
                                     <th>Nazwisko</th>
                                     <th>Wydział</th>
@@ -23,10 +24,11 @@
                                 @foreach ($dataToChange as $data)
                                 <tr>
                                         <th scope="row">{{$data->user_id}}</th>
-                                        <th>{{$indexNumer[($data->user_id) -1]->name}}          <br /> --- <br /> {{$data->name}}</th>
-                                        <th>{{$indexNumer[($data->user_id) -1]->lastname}}      <br /> --- <br /> {{$data->lastname}}</th>
-                                        <th>{{$indexNumer[($data->user_id) -1]->department}}    <br /> --- <br /> {{$data->department}}</th>
-                                        <th>{{$indexNumer[($data->user_id) -1]->direction}}     <br /> --- <br /> {{$data->direction}}</th>
+                                        <th>{{$userData[($data->user_id) -1]->role}}</th>
+                                        <th>{{$userData[($data->user_id) -1]->name}}          <br /> --- <br /> {{$data->name}}</th>
+                                        <th>{{$userData[($data->user_id) -1]->lastname}}      <br /> --- <br /> {{$data->lastname}}</th>
+                                        <th>{{$userData[($data->user_id) -1]->department}}    <br /> --- <br /> {{$data->department}}</th>
+                                        <th>{{$userData[($data->user_id) -1]->direction}}     <br /> --- <br /> {{$data->direction}}</th>
                                         <th>
                                             <form class="form-horizontal"  method="POST" name="acceptEditChange" action="/acceptEditChange/{{($data->user_id)}}">
                                                 {{ csrf_field() }}
