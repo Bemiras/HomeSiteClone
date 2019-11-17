@@ -87,14 +87,14 @@
 
 @if (Auth::check() && Auth::user()->role == 'student' && Auth::user()->card == 'Rozpatrzenie')
 <br>
-<h4 align="center">Twoja proźba o uruchomnienie karty obiegowej została pomyślnie wysłana. </h4>
+<h4 align="center">Twoja prośba o uruchomnienie karty obiegowej została pomyślnie wysłana. </h4>
 <h5 align="center">Prosimy czekać aż administrator potwierdzi jej uruchomienie. </h5>
 
 @endif
 
 @if (Auth::check() && Auth::user()->role == 'student' && Auth::user()->card == 'Bledne dane')
 <br>
-<h4 align="center">Twoja proźba o uruchomnienie karty obiegowej została zakończona niepowodzeniem. </h4>
+<h4 align="center">Twoja prośba o uruchomnienie karty obiegowej została zakończona niepowodzeniem. </h4>
 <h5 align="center">Prosimy o ponowne wypełnienie wniosku . </h5>
 <div class="panel-body" align="center">
 <form action="{{ action('CardController@store')}}" method="post" role="form" >
