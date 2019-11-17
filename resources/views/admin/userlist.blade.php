@@ -22,10 +22,10 @@
     @foreach ($userlist as $user)
     <tr>
         <th scope="row">{{$user->id}}</th>
-        <th>{{$user->name}}</th>
+        <th>{{$user->name_user}}</th>
         <th>{{$user->lastname}}</th>
-        <th>{{$user->department}}</th>
-        <th>{{$user->direction}}</th>
+        <th>{{$user->name_department}}</th>
+        <th>{{$user->name_direction}}</th>
         <th>{{$user->role}}</th>
 
     </tr>
