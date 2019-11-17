@@ -13,24 +13,23 @@ class ApplicationForChangingUserData extends Migration
      */
     public function up()
     {
-        Schema::create('chang_application', function (Blueprint $table) {
+        Schema::create('application_for_changing_datas', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
-            $table->integer('id')->unique();
+            $table->increments('id')->unique();
             $table->integer('user_id');
             $table->string('name');
             $table->string('lastname');
-            $table->string('password');
-            $table->integer('typestudy')->unsigned();
-            $table->integer('levelstudy')->unsigned();
-            $table->integer('department')->unsigned();
-            $table->integer('direction')->unsigned();
-            $table->string('specialization')->nullable();
+            $table->integer('typestudy')->unsigned()->nullable();
+            $table->integer('levelstudy')->unsigned()->nullable();
+            $table->integer('department')->unsigned()->nullable();
+            $table->integer('direction')->unsigned()->nullable();
+            $table->string('specialization')->nullable()->nullable();
             //$table->rememberToken();
             $table->timestamps();
         });
 
-        Schema::table('chang_application',function (Blueprint $table){
+        Schema::table('application_for_changing_datas',function (Blueprint $table){
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
 
@@ -43,6 +42,6 @@ class ApplicationForChangingUserData extends Migration
      */
     public function down()
     {
-        Schema::drop('chang_application');
+        Schema::drop('application_for_changing_datas');
     }
 }

@@ -19,10 +19,10 @@ class CreateUsersTable extends Migration
             $table->string('lastname');
             $table->string('email');
             $table->string('password');
-            $table->integer('typestudy')->unsigned();
-            $table->integer('levelstudy')->unsigned();
-            $table->integer('department')->unsigned();
-            $table->integer('direction')->unsigned();
+            $table->integer('typestudy')->unsigned()->nullable();
+            $table->integer('levelstudy')->unsigned()->nullable();
+            $table->integer('department')->unsigned()->nullable();
+            $table->integer('direction')->unsigned()->nullable();
             $table->string('role')->default('student');
             $table->string('card')->default('Brak');
             $table->integer('id_card')->unsigned()->nullable();
