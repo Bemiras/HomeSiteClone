@@ -57,7 +57,7 @@ Route::get('/directionoffer', 'DirectionofferController@index');
 Route::get('/directionoffer/create', 'DirectionofferController@create');
 Route::post('/directionoffer/store', 'DirectionofferController@store');
 Route::get('/directionoffer/destroy/{id}', 'DirectionofferController@destroy');
-Route::post('/directionoffer/update','DirectionofferController@update');
+Route::post('/directionoffer/update/{id}','DirectionofferController@update');
 Route::get('/directionoffer/edit/{id}', 'DirectionofferController@edit');
 
 Route::get('/userrole', 'UserroleController@index');
