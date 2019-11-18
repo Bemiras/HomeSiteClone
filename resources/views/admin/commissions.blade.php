@@ -23,7 +23,7 @@
     <tbody>
     @foreach ($userlistPrzewodniczacy as $userPrzewodniczacy)
     <tr>
-        <th scope="row">{{$userPrzewodniczacy->commission_name}}</th>
+        <th scope="row">{{$userPrzewodniczacy->commissionPrzewodniczacy_name}}</th>
         <th>{{$userPrzewodniczacy->workerPrzewodniczacy_id}}</th>
         <th>{{$userPrzewodniczacy->workerPrzewodniczacy_name}}</th>
         <th>{{$userPrzewodniczacy->workerPrzewodniczacy_lastname}}</th>
@@ -31,17 +31,19 @@
         <th><a  href="{{ action('CommissionsController@edit', $userPrzewodniczacy->id) }}"><img src={{ asset('images/edit.png') }}  /></a></th>
         <th><a  href="{{ action('CommissionsController@destroy', $userPrzewodniczacy->id) }}"><img src={{ asset('images/delete.png') }}  /></a></th>
     </tr>
-            @foreach ($userlistZastepca as $userZastepca)
+            @foreach ($userlistZastepca->where('commissionPrzewodniczacy_name','==','commissionZastepca_name') as $userZastepca )
             <tr>
-                <th scope="row"></th>
+                <th scope="row">{{$userZastepca->commissionZastepca_name}}</th>
                 <th>{{$userZastepca->workerZastepca_id}}</th>
                 <th>{{$userZastepca->workerZastepca_name}}</th>
                 <th>{{$userZastepca->workerZastepca_lastname}}</th>
                 <th>Zastepca</th>
             </tr>
-                    @foreach ($userlistSekretarz as $userSekretarz)
+
+                    @foreach ($userlistSekretarz->where('commissionSekretarz_name','==','commissionPrzewodniczacy_name') as $userSekretarz)
                     <tr>
-                        <th scope="row"></th>
+
+                        <th scope="row">{{$userSekretarz->commissionSekretarz_name}}</th>
                         <th>{{$userSekretarz->workerSekretarz_id}}</th>
                         <th>{{$userSekretarz->workerSekretarz_name}}</th>
                         <th>{{$userSekretarz->workerSekretarz_lastname}}</th>
