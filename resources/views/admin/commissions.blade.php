@@ -1,8 +1,5 @@
 @extends('layouts.app')
 
-
-
-
 @section('content')
 
 <h2 style="text-align: center">PANEL - Komisje</h2></br>
@@ -14,7 +11,7 @@
         <th><h4>Nazwa</h4></th>
         <th><h4>Numer pracownika</h4></th>
         <th><h4>Imię</h4></th>
-        <th><h4>Nazwisko</h4></th>s
+        <th><h4>Nazwisko</h4></th>
         <th><h4>Rola</h4></th>
         <th></th>
         <th></th>
@@ -31,25 +28,42 @@
         <th><a  href="{{ action('CommissionsController@edit', $userPrzewodniczacy->id) }}"><img src={{ asset('images/edit.png') }}  /></a></th>
         <th><a  href="{{ action('CommissionsController@destroy', $userPrzewodniczacy->id) }}"><img src={{ asset('images/delete.png') }}  /></a></th>
     </tr>
-            @foreach ($userlistZastepca->where('commissionPrzewodniczacy_name','==','commissionZastepca_name') as $userZastepca )
+
+            @foreach ($userlistZastepca as $userZastepca )
+            @if ($userZastepca->commissionZastepca_name == $userPrzewodniczacy->commissionPrzewodniczacy_name)
             <tr>
-                <th scope="row">{{$userZastepca->commissionZastepca_name}}</th>
+                <th scope="row"></th>
                 <th>{{$userZastepca->workerZastepca_id}}</th>
                 <th>{{$userZastepca->workerZastepca_name}}</th>
                 <th>{{$userZastepca->workerZastepca_lastname}}</th>
                 <th>Zastepca</th>
             </tr>
+            @endif
+            @endforeach
 
-                    @foreach ($userlistSekretarz->where('commissionSekretarz_name','==','commissionPrzewodniczacy_name') as $userSekretarz)
-                    <tr>
 
-                        <th scope="row">{{$userSekretarz->commissionSekretarz_name}}</th>
-                        <th>{{$userSekretarz->workerSekretarz_id}}</th>
-                        <th>{{$userSekretarz->workerSekretarz_name}}</th>
-                        <th>{{$userSekretarz->workerSekretarz_lastname}}</th>
-                        <th>Sekretarz</th>
-                    </tr>
-                    @endforeach
+            @foreach ($userlistSekretarz as $userSekretarz)
+            @if ($userSekretarz->commissionSekretarz_name == $userPrzewodniczacy->commissionPrzewodniczacy_name)
+            <tr>
+                <th scope="row"></th>
+                <th>{{$userSekretarz->workerSekretarz_id}}</th>
+                <th>{{$userSekretarz->workerSekretarz_name}}</th>
+                <th>{{$userSekretarz->workerSekretarz_lastname}}</th>
+                <th>Sekretarz</th>
+            </tr>
+            @endif
+            @endforeach
+
+            @foreach ($userlistCzlonek as $userCzlonek)
+            @if ($userCzlonek->commissionCzlonek_name == $userPrzewodniczacy->commissionPrzewodniczacy_name)
+            <tr>
+                <th scope="row"></th>
+                <th>{{$userCzlonek->workerCzlonek_id}}</th>
+                <th>{{$userCzlonek->workerCzlonek_name}}</th>
+                <th>{{$userCzlonek->workerCzlonek_lastname}}</th>
+                <th>Członek</th>
+            </tr>
+            @endif
             @endforeach
     @endforeach
     </tbody>

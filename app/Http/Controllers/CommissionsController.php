@@ -18,19 +18,28 @@ class CommissionsController
             ->select('users.*','users.id AS workerPrzewodniczacy_id','users.name AS workerPrzewodniczacy_name',
                 'commissions.name AS commissionPrzewodniczacy_name','users.lastname AS workerPrzewodniczacy_lastname')
             ->get();
+
         $userZastepca = DB::table('commissions')
             ->join('users','commissions.workerZastepca','=','users.id')
             ->select('users.*','users.id AS workerZastepca_id','users.name AS workerZastepca_name',
                 'users.lastname AS workerZastepca_lastname','commissions.name AS commissionZastepca_name')
             ->get();
+
         $userSekretarz = DB::table('commissions')
             ->join('users','commissions.workerSekretarz','=','users.id')
             ->select('users.*','users.id AS workerSekretarz_id','users.name AS workerSekretarz_name',
                 'users.lastname AS workerSekretarz_lastname','commissions.name AS commissionSekretarz_name')
             ->get();
 
+        $userCzlonek = DB::table('commissions')
+            ->join('users','commissions.workerCzlonek','=','users.id')
+            ->select('users.*','users.id AS workerCzlonek_id','users.name AS workerCzlonek_name',
+                'users.lastname AS workerCzlonek_lastname','commissions.name AS commissionCzlonek_name')
+            ->get();
+
         return view('admin.commissions',["userlistPrzewodniczacy"=>$userPrzewodniczacy,
-            "userlistZastepca"=>$userZastepca,"userlistSekretarz"=>$userSekretarz]);
+            "userlistZastepca"=>$userZastepca,"userlistSekretarz"=>$userSekretarz,
+            "userlistCzlonek"=>$userCzlonek]);
     }
 
     public function create(UserRepository $userRepo){

@@ -20,7 +20,7 @@ class PendingapplicationController
 
         $users = DB::table('users')
             ->join('cards','cards.id','=','users.id_card')
-            ->join('commissions','commissions.number_commission','=','commission_id')
+            ->join('commissions','commissions.workerPrzewodniczacy','=','users.id')
             ->join('departments', 'departments.id', '=', 'users.department')
             ->join('directions', 'directions.id', '=', 'users.direction')
             ->select('users.*','users.id AS id_student','users.name AS name_student',

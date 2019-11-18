@@ -104,7 +104,7 @@
     </tr>
     </thead>
     <tbody>
-    @foreach ($userlist as $user)
+    @foreach ($userlist->unique() as $user)
     <tr>
         @if ($user->promoter == 'W trakcie' && $user->card == 'W realizacji' && Auth::user()->id == $user->userPromoter)
         <th scope="row">{{$user->id_student}}</th>
