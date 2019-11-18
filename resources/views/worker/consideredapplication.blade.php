@@ -16,7 +16,6 @@
         <th>Imię</th>
         <th>Nazwisko</th>
         <th>WPIS Dziekanat</th>
-        <th>Anuluj</th>
         
     </tr>
     </thead>
@@ -71,7 +70,6 @@
         <th>Imię</th>
         <th>Nazwisko</th>
         <th>WPIS Akademik</th>
-        <th>Anuluj</th>
         
     </tr>
     </thead>
