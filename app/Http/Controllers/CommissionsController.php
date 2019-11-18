@@ -23,7 +23,7 @@ class CommissionsController
         $commission = DB::table('Commissions')
             ->get();
 
-        return view('admin.createcommissionuser',["workers"=>$workers, "commissions"=>$commission]);
+        return view('admin.createcommission',["workers"=>$workers, "commissions"=>$commission]);
     }
 
     public function edit($id, UserRepository $userRepo){
