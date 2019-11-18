@@ -5,18 +5,12 @@
 
 @section('content')
 
-<h2 style="text-align: center">PANEL - Komisje</h2>
-
-<div align="center" class="panel-body">
-    <a style="width: 15%;" href="{{ action('CommissionsController@create') }}" class="btn btn-info">Dodaj członka komisji</a>
-</div>
-
+<h2 style="text-align: center">PANEL - Komisje</h2></br>
 
 
 <table align="center"  style="width: 70%;" class="table">
     <thead>
     <tr>
-        <th><h4>Numer komisji</h4></th>
         <th><h4>Nazwa</h4></th>
         <th><h4>Rola</h4></th>
         <th><h4>Numer pracownika</h4></th>
@@ -29,8 +23,8 @@
     <tbody>
     @foreach ($userlist as $user)
     <tr>
-        <th scope="row">{{$user->number_commission}}</th>
-        <th>{{$user->name}}</th>
+        <th scope="row">{{$user->worker_id}}</th>
+        <th>{{$user->worker}}</th>
         <th>{{$user->role_commission}}</th>
         <th>{{$user->usernumber_commission}}</th>
         <th>{{$user->usercommission->name}}</th>
@@ -42,6 +36,10 @@
     @endforeach
     </tbody>
 </table>
+
+<div align="center" class="panel-body">
+    <a style="width: 15%;" href="{{ action('CommissionsController@create') }}" class="btn btn-info">Dodaj komisje</a>
+</div>
 
 
 

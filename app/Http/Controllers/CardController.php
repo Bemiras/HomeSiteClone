@@ -40,7 +40,7 @@ class CardController extends Controller
          'dormitory' => 'W trakcie',
          'deanery' => 'W trakcie',
          'promoter' => 'W trakcie',
-        'commission_id' => Request('number_commission'),
+        'commission_id' => Request('commission_id'),
         'userPromoter' => Request('promoter')
         ]);
 
