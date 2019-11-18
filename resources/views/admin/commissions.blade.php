@@ -8,20 +8,20 @@
 <h2 style="text-align: center">PANEL - Komisje</h2>
 
 <div align="center" class="panel-body">
-    <a style="width: 40%;" href="{{ action('CommissionsController@create') }}" class="btn btn-info">Dodaj członka komisji</a>
+    <a style="width: 15%;" href="{{ action('CommissionsController@create') }}" class="btn btn-info">Dodaj członka komisji</a>
 </div>
 
 
 
-<table align="center"  style="width: 40%;" class="table">
+<table align="center"  style="width: 70%;" class="table">
     <thead>
     <tr>
-        <th>Numer komisji</th>
-        <th>Nazwa</th>
-        <th>Rola</th>
-        <th>Numer pracownika</th>
-        <th>Imię</th>
-        <th>Nazwisko</th>
+        <th><h4>Numer komisji</h4></th>
+        <th><h4>Nazwa</h4></th>
+        <th><h4>Rola</h4></th>
+        <th><h4>Numer pracownika</h4></th>
+        <th><h4>Imię</h4></th>
+        <th><h4>Nazwisko</h4></th>
         <th></th>
         <th></th>
     </tr>

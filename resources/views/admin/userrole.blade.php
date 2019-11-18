@@ -5,18 +5,17 @@
 
 @section('content')
 
-<h2 style="text-align: center">PANEL - Pracowników</h2>
+<h2 style="text-align: center">PANEL - Pracowników</h2></br>
 
-<table align="center"  style="width: 40%;" class="table">
+<table align="center"  style="width: 70%;" class="table">
     <thead>
-    <tr>
-        <th>Numer pracownika</th>
-        <th>Imię</th>
-        <th>Nazwisko</th>
-        <th>Wydział</th>
-        <th>Rola</th>
-
-    </tr>
+     <tr>
+         <th><h4>Numer pracownika</h4></th>
+         <th><h4>Imię</h4></th>
+         <th><h4>Nazwisko</h4></th>
+         <th><h4>Wydział</h4></th>
+         <th><h4>Rola</h4></th>
+     </tr>
     </thead>
     <tbody>
     @foreach ($workerlist as $worker)

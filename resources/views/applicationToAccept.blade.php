@@ -7,17 +7,17 @@
                     @if(Auth::check() && Auth::user()->role == 'administrator')
                     @if(!count($dataBase) == 0)
                         <div class="panel-heading">  </div>
-                            <table align="center"  style="width: 40%;" class="table">
+                            <table align="center"  style="width: 70%;" class="table">
                                 <thead>
                                 <tr>
-                                    <th>Numer studenta/pracownika</th>
-                                    <th>Rola</th>>
-                                    <th>Imię</th>
-                                    <th>Nazwisko</th>
-                                    <th>Wydział</th>
-                                    <th>Kierunek</th>
-                                    <th>Akceptuj</th>
-                                    <th>Odrzuć</th>
+                                    <th><h4>Numer studenta/pracownika</h4></th>
+                                    <th><h4>Rola</h4></th>>
+                                    <th><h4>Imię</h4></th>
+                                    <th><h4>Nazwisko</h4></th>
+                                    <th><h4>Wydział</h4></th>
+                                    <th><h4>Kierunek</h4></th>
+                                    <th><h4>Akceptuj</h4></th>
+                                    <th><h4>Odrzuć</h4></th>
                                 </tr>
                                 </thead>
                                 <tbody>
