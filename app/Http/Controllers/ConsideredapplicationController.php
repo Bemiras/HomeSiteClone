@@ -16,7 +16,9 @@ use Illuminate\Support\Facades\DB;
 class ConsideredapplicationController
 {
     public function index(){
-
+        if(!Auth::check())
+            return redirect('/login');
+        else{
         $users = DB::table('users')
             ->join('cards','cards.id','=','users.id_card')
             ->join('commissions','commissions.number_commission','=','commission_id')
@@ -29,5 +31,7 @@ class ConsideredapplicationController
             ->get();
 
         return view('worker.consideredapplication',["userlist"=>$users]);
+        }
     }
+
 }

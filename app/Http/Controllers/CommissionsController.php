@@ -4,6 +4,7 @@
 namespace App\Http\Controllers;
 
 use App\Commission;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Request;
 use App\Repositories\UserRepository;
@@ -12,7 +13,9 @@ class CommissionsController
 {
     public function index(){
 
-
+        if(!Auth::check())
+            return redirect('/login');
+        else{
         $userPrzewodniczacy = DB::table('commissions')
             ->join('users','commissions.workerPrzewodniczacy','=','users.id')
             ->select('users.*','users.id AS workerPrzewodniczacy_id','users.name AS workerPrzewodniczacy_name',
@@ -31,6 +34,7 @@ class CommissionsController
 
         return view('admin.commissions',["userlistPrzewodniczacy"=>$userPrzewodniczacy,
             "userlistZastepca"=>$userZastepca,"userlistSekretarz"=>$userSekretarz]);
+        }
     }
 
     public function create(UserRepository $userRepo){

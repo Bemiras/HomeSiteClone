@@ -17,19 +17,21 @@ use Illuminate\Support\Facades\DB;
 class PendingapplicationController
 {
     public function index(){
+        if(!Auth::check())
+            return redirect('/login');
+        else {
+            $users = DB::table('users')
+                ->join('cards', 'cards.id', '=', 'users.id_card')
+                ->join('commissions', 'commissions.number_commission', '=', 'commission_id')
+                ->join('departments', 'departments.id', '=', 'users.department')
+                ->join('directions', 'directions.id', '=', 'users.direction')
+                ->select('users.*', 'users.id AS id_student', 'users.name AS name_student',
+                    'users.lastname AS lastname_student',
+                    'cards.promoter AS promoter', 'cards.userPromoter AS userPromoter')
+                ->get();
 
-        $users = DB::table('users')
-            ->join('cards','cards.id','=','users.id_card')
-            ->join('commissions','commissions.number_commission','=','commission_id')
-            ->join('departments', 'departments.id', '=', 'users.department')
-            ->join('directions', 'directions.id', '=', 'users.direction')
-            ->select('users.*','users.id AS id_student','users.name AS name_student',
-                'users.lastname AS lastname_student',
-                'cards.promoter AS promoter','cards.userPromoter AS userPromoter')
-            ->get();
-        
-        return view('worker.pendingapplication',["userlist"=>$users]);
-
+            return view('worker.pendingapplication', ["userlist" => $users]);
+        }
     }
 
     public function updateYesDeanery($id)
