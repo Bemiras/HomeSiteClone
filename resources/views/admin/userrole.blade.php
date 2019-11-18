@@ -24,7 +24,7 @@
         <th scope="row">{{$worker->id}}</th>
         <th>{{$worker->name}}</th>
         <th>{{$worker->lastname}}</th>
-        <th>{{$worker->department}}</th>
+        <th>{{$worker->name_department}}</th>
         <th>{{$worker->role}}</th>
         <th><a  href="{{ action('UserroleController@edit', $worker->id) }}"><img src={{ asset('images/edit.png') }}  /></a></th>
     </tr>

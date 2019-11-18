@@ -8,15 +8,26 @@ use App\Commission;
 use App\Repositories\UserRepository;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserroleController
 {
     public function index(){
-        $workers = User::all()
-            ->where("role","pracownik")
-            ->sortBy('id');
+       // $workers = User::all()
+       //     ->where("role","pracownik")
+        //    ->sortBy('id');
+
+       // return view('admin.userrole',["workerlist"=>$workers]);
+
+
+        $workers = DB::table('users')
+            ->join('departments', 'departments.id', '=', 'users.department')
+            ->select('users.*','users.name AS name_user','departments.name AS name_department')
+            ->get();
 
         return view('admin.userrole',["workerlist"=>$workers]);
+
+
     }
     public function edit($id, UserRepository $userRepo){
         $workers  = User::find($id);
