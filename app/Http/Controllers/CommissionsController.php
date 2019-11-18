@@ -12,8 +12,11 @@ class CommissionsController
 {
     public function index(){
 
-        $users = Commission::all()->sortBy('number_commission');
 
+        $users = DB::table('users')
+            ->join('commissions','commissions.workerPrzewodniczacy','=','id')
+            ->select('users.*','users.id AS worker_id')
+            ->get();
 
         return view('admin.commissions',["userlist"=>$users]);
     }
@@ -29,7 +32,7 @@ class CommissionsController
     public function edit($id, UserRepository $userRepo){
         $commission  = Commission::find($id);
         $workers = $userRepo->getAllWorkers();
-        return view('admin.editcommissionuser', ['commission' => $commission,'workers'=>$workers]);
+        return view('admin.editcommission', ['commission' => $commission,'workers'=>$workers]);
     }
 
     public function destroy($id){
@@ -41,9 +44,10 @@ class CommissionsController
     public function store()
     {
         $commission = new Commission;
-        $commission->number_commission =  Request('number_commission');
-        $commission->role_commission =  Request('role');
-        $commission->usernumber_commission =  Request('worker');
+        $commission->workerPrzewodniczacy =  Request('workerPrzewodniczacy');
+        $commission->workerZastepca =  Request('workerZastepca');
+        $commission->workerSekretarz =  Request('workerSekretarz');
+        $commission->workerCzlonek =  Request('workerCzlonek');
         $commission->name =  Request('name');
         $commission->save();
         return redirect()->action('CommissionsController@index');

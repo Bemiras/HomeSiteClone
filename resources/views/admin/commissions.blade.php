@@ -24,11 +24,7 @@
     @foreach ($userlist as $user)
     <tr>
         <th scope="row">{{$user->worker_id}}</th>
-        <th>{{$user->worker}}</th>
-        <th>{{$user->role_commission}}</th>
-        <th>{{$user->usernumber_commission}}</th>
-        <th>{{$user->usercommission->name}}</th>
-        <th>{{$user->usercommission->lastname}}</th>
+        <th>{{$user->worker_id}}</th>
         <th><a  href="{{ action('CommissionsController@edit', $user->id) }}"><img src={{ asset('images/edit.png') }}  /></a></th>
         <th><a  href="{{ action('CommissionsController@destroy', $user->id) }}"><img src={{ asset('images/delete.png') }}  /></a></th>
 
