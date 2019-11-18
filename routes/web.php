@@ -49,7 +49,7 @@ Route::get('/departmentoffer', 'DepartmentofferController@index');
 Route::get('/departmentoffer/create', 'DepartmentofferController@create');
 Route::post('/departmentoffer/store', 'DepartmentofferController@store');
 Route::get('/departmentoffer/destroy/{id}', 'DepartmentofferController@destroy');
-Route::post('/departmentoffer/update','DepartmentofferController@update');
+Route::post('/departmentoffer/update/{id}','DepartmentofferController@update');
 Route::get('/departmentoffer/edit/{id}', 'DepartmentofferController@edit');
 
 
