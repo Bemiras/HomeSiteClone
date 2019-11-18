@@ -49,7 +49,7 @@ Route::get('/departmentoffer', 'DepartmentofferController@index');
 Route::get('/departmentoffer/create', 'DepartmentofferController@create');
 Route::post('/departmentoffer/store', 'DepartmentofferController@store');
 Route::get('/departmentoffer/destroy/{id}', 'DepartmentofferController@destroy');
-Route::post('/departmentoffer/update','DepartmentofferController@update');
+Route::post('/departmentoffer/update/{id}','DepartmentofferController@update');
 Route::get('/departmentoffer/edit/{id}', 'DepartmentofferController@edit');
 
 
@@ -57,7 +57,7 @@ Route::get('/directionoffer', 'DirectionofferController@index');
 Route::get('/directionoffer/create', 'DirectionofferController@create');
 Route::post('/directionoffer/store', 'DirectionofferController@store');
 Route::get('/directionoffer/destroy/{id}', 'DirectionofferController@destroy');
-Route::post('/directionoffer/update','DirectionofferController@update');
+Route::post('/directionoffer/update/{id}','DirectionofferController@update');
 Route::get('/directionoffer/edit/{id}', 'DirectionofferController@edit');
 
 Route::get('/userrole', 'UserroleController@index');

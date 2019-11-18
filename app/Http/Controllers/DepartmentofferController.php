@@ -4,11 +4,13 @@
 namespace App\Http\Controllers;
 
 use App\Department;
-use Request;
+
 use App\Repositories\DepartmentRepository;
+use Illuminate\Http\Request;
 
 
-class DepartmentofferController
+
+class DepartmentofferController extends Controller
 {
     public function index(){
 
@@ -34,6 +36,7 @@ class DepartmentofferController
 
     public function edit($id, DepartmentRepository $departmentRepo){
         $department  = Department::find($id);
+        var_dump($department->id);
         $workers = $departmentRepo->getAllDepartment();
         return view('admin.editdepartment', ['department' => $department]);
     }
@@ -44,9 +47,9 @@ class DepartmentofferController
         return redirect()->action('DepartmentofferController@index');
         }
     
-    public function update(){
-        $department  = Department::find(Request::input('id'));
-        $department->name =  Request::input('name');
+    public function update($id, Request $request){
+        $department  = Department::find($id);
+        $department->name = $request->input('name');
         $department->save();
         return redirect()->action('DepartmentofferController@index');
     }
