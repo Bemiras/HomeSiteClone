@@ -15,7 +15,7 @@
         Wydział: <textarea name="name" rows="1" cols="30" ></textarea>
     </div>
 
-    <input type="submit" value="Add" class="btn btn-primary" />
+    <input type="submit" value="Zamień" class="btn btn-primary" />
     <a href="{{ action('DepartmentofferController@index') }}" class="btn btn-link">Powrót</a>
 </form>
 </div>
