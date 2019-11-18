@@ -107,9 +107,9 @@
     @foreach ($userlist as $user)
     <tr>
         @if ($user->promoter == 'W trakcie' && $user->card == 'W realizacji' && Auth::user()->id == $user->userPromoter)
-        <th scope="row">{{$user->id}}</th>
-        <th>{{$user->name}}</th>
-        <th>{{$user->lastname}}</th>
+        <th scope="row">{{$user->id_student}}</th>
+        <th>{{$user->name_student}}</th>
+        <th>{{$user->lastname_student}}</th>
         <th>{{$user->promoter}}</th>
         <th><a  href="{{ action('PendingapplicationController@updateYesPromoter', $user->id_card) }}"><img src={{ asset('images/akcept.png') }}  /></a></th>
         <th><a  href="{{ action('PendingapplicationController@updateNoPromoter', $user->id_card) }}"><img src={{ asset('images/notAkcept.png') }}  /></a></th>
