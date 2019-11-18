@@ -16,6 +16,7 @@
         <th>Imię</th>
         <th>Nazwisko</th>
         <th>WPIS Dziekanat</th>
+        <th>Anuluj</th>
         
     </tr>
     </thead>
@@ -131,7 +132,7 @@
     <tbody>
     @foreach ($userlist->unique('name') as $user)
     <tr>
-        @if ($user->card == 'W realizacji' && $user->commission_id == $user->number_commission && Auth::user()->id == $user->usernumber_commission)
+        @if ($user->card == 'Zakonczona' && $user->commission_id == $user->number_commission && Auth::user()->id == $user->usernumber_commission)
         <th scope="row">{{$user->id_student}}</th>
         <th>{{$user->name_student}}</th>
         <th>{{$user->lastname}}</th>
