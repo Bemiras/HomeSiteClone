@@ -12,7 +12,9 @@ class CommissionsController
 {
     public function index(){
 
-
+        if(!Auth::check())
+            return redirect('/login');
+        else{
         $userPrzewodniczacy = DB::table('commissions')
             ->join('users','commissions.workerPrzewodniczacy','=','users.id')
             ->select('users.*','users.id AS workerPrzewodniczacy_id','users.name AS workerPrzewodniczacy_name',
@@ -40,6 +42,8 @@ class CommissionsController
         return view('admin.commissions',["userlistPrzewodniczacy"=>$userPrzewodniczacy,
             "userlistZastepca"=>$userZastepca,"userlistSekretarz"=>$userSekretarz,
             "userlistCzlonek"=>$userCzlonek]);
+            "userlistZastepca"=>$userZastepca,"userlistSekretarz"=>$userSekretarz]);
+        }
     }
 
     public function create(UserRepository $userRepo){
