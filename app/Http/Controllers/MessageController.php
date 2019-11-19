@@ -3,7 +3,7 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Message;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -32,10 +32,10 @@ class MessageController
     }
     public function sendMessage($id,Request $request)
     {
-        $message = new Message ;
-        $message->message =  $request->input('message');
-        $message->sender =  $request->input('workerZastepca_id');
+        $message = new  Message;
+        $message->sender =  $request->input('sender');
         $message->recipient =  $request->input($id);
+        $message->message =  $request->input('message');
         $message->save();
         return redirect()->action('MessageController@index');
 
