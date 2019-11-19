@@ -96,6 +96,7 @@ class PendingapplicationController
 
      public function updateNoDormitory($id)
     {
+
         DB::table('Cards')
             ->where('id', $id)
             ->update(['dormitory' => 'Niepowodzenie']);

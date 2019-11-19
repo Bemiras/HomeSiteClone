@@ -84,9 +84,10 @@
         <th>{{$user->name_student}}</th>
         <th>{{$user->lastname_student}}</th>
         <th>{{$user->dormitory}}</th>
+
         <th><a  href="{{ action('PendingapplicationController@updateYesDormitory', $user->id_card) }}"><img src={{ asset('images/akcept.png') }}  /></a></th>
-        <th><a  href="{{ action('PendingapplicationController@updateNoDormitory', $user->id_card) }}"><img src={{ asset('images/notAkcept.png') }}  /></a></th>
-    @endif
+        <th><a  href="{{ action('MessageController@newMessage', $user->id) }} "target="_blank"><img src={{ asset('images/notAkcept.png') }}  /></a></th>
+        @endif
     </tr>
     @endforeach
     </tbody>

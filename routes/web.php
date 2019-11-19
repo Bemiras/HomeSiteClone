@@ -29,6 +29,8 @@ Route::get('/card', 'CardController@index');
 Route::post('/card/store', 'CardController@store');
 
 Route::get('/message', 'MessageController@index');
+Route::get('/message/newMessage/{id}', 'MessageController@newMessage');
+Route::post('/message/sendMessage/{id}', 'MessageController@sendMessage');
 
 Route::get('/pendingapplication', 'PendingapplicationController@index');
 Route::get('/pendingapplication/updateYesDeanery/{id}', 'PendingapplicationController@updateYesDeanery');
