@@ -34,7 +34,7 @@ class MessageController
     {
         $message = new  Message;
         $message->sender =  $request->input('sender');
-        $message->recipient =  $request->input($id);
+        $message->recipient =  $request->input('recipient');
         $message->message =  $request->input('message');
         $message->save();
         return redirect()->action('MessageController@index');

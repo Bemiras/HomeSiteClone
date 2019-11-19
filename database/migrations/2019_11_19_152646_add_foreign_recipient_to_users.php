@@ -13,7 +13,7 @@ class AddForeignRecipientToUsers extends Migration
      */
     Public function up()
     {
-        Schema::table('message',function (Blueprint $table){
+        Schema::table('messages',function (Blueprint $table){
             $table->foreign('recipient')->references('id')->on('users')->onDelete('cascade');
         });
     }

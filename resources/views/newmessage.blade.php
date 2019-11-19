@@ -20,6 +20,12 @@
         <div>
             <textarea name="message" style="width: 40%;" rows="10" cols="30" ></textarea>
         </div></br>
+        <div>
+            <textarea name="sender" style="width: 40%;" rows="10" cols="30" ></textarea>
+        </div></br>
+        <div>
+            <textarea name="recipient" style="width: 40%;" rows="10" cols="30" ></textarea>
+        </div></br>
 
         </br>
         @endforeach

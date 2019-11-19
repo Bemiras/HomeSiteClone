@@ -13,11 +13,11 @@ class AddMessageTable extends Migration
      */
     public function up()
     {
-        Schema::create('message', function (Blueprint $table) {
+        Schema::create('messages', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('sender')->unsigned();
-            $table->integer('recipient')->unsigned();
-            $table->string('message')->nullable();
+            $table->integer('sender');
+            $table->integer('recipient');
+            $table->string('message');
             $table->timestamps();
         });
     }
