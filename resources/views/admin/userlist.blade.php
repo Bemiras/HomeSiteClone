@@ -15,7 +15,6 @@
         <th><h4>Nazwisko</h4></th>
         <th><h4>Wydział</h4></th>
         <th><h4>Kierunek</h4></th>
-        <th><h4>Rola</h4></th>
     </tr>
     </thead>
     <tbody>
@@ -26,7 +25,6 @@
         <th>{{$user->lastname}}</th>
         <th>{{$user->name_department}}</th>
         <th>{{$user->name_direction}}</th>
-        <th>{{$user->role}}</th>
 
     </tr>
     @endforeach

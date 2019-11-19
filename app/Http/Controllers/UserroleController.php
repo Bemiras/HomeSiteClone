@@ -17,17 +17,13 @@ class UserroleController
         if(!Auth::check())
             return redirect('/login');
         else {
-            // $workers = User::all()
-            //     ->where("role","pracownik")
-            //    ->sortBy('id');
 
-            // return view('admin.userrole',["workerlist"=>$workers]);
-
-
-            $workers = DB::table('users')
-                ->join('departments', 'departments.id', '=', 'users.department')
-                ->select('users.*', 'users.name AS name_user', 'departments.name AS name_department')
-                ->get();
+         $workers = DB::table('users')
+               ->join('departments', 'departments.id', '=', 'users.department')
+               ->where("role","pracownik")
+               ->select('users.*', 'users.name AS user_name', 'departments.name AS name_department'
+                   ,'users.specialization AS user_specialization','users.id AS user_id','users.lastname AS user_lastname')
+               ->get();
 
             return view('admin.userrole', ["workerlist" => $workers]);
 
@@ -35,17 +31,24 @@ class UserroleController
     }
 
     public function edit($id, UserRepository $userRepo){
-        $workers  = User::find($id);
-        return view('admin.editrole', ['workers'=>$workers]);
+        //$workers  = User::find($id);
+        $workers = DB::table('users')
+            ->join('departments', 'departments.id', '=', 'users.department')
+            ->where("users.id","$id")
+            ->select('users.*', 'users.name AS user_name', 'departments.name AS name_department'
+                ,'users.specialization AS user_specialization','users.id AS user_id','users.lastname AS user_lastname')
+            ->get();
+
+        return view('admin.editrole', ['workerlist'=>$workers]);
     }
 
-    public function update()
-    {
-        $worker  = User::find(Request::input('id'));
-        $worker->specialization =  Request::input('specialization');
+
+    public function update($id, Request $request){
+        $worker  = User::find($id);
+        $worker->specialization = $request->input('specialization');
         $worker->save();
         return redirect()->action('UserroleController@index');
-    }
+        }
 
     public function showRegistrations(){
         return view('admin.employeeRegistrations');

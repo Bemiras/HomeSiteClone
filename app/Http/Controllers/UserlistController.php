@@ -19,6 +19,7 @@ class UserlistController
             $users = DB::table('users')
                 ->join('departments', 'departments.id', '=', 'users.department')
                 ->join('directions', 'directions.id', '=', 'users.direction')
+                ->where("role","student")
                 ->select('users.*', 'users.name AS name_user', 'departments.name AS name_department', 'directions.name AS name_direction')
                 ->get();
             return view('admin.userlist', ["userlist" => $users]);

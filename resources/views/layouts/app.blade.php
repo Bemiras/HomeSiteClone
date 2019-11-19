@@ -142,7 +142,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ URL::to('userlist') }}">Lista użytkowników</a>
+                            <a class="nav-link" href="{{ URL::to('userlist') }}">Lista studentów</a>
                         </li>
 
                         <li class="dropdown">
