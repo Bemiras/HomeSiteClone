@@ -24,9 +24,9 @@
     @foreach ($userlist as $user)
     <tr>
     @if ($user->deanery == 'Zakonczona' OR $user->deanery == 'Niepowodzenie' && $user->card == 'W realizacji')
-        <th scope="row">{{$user->id}}</th>
-        <th>{{$user->name}}</th>
-        <th>{{$user->lastname}}</th>
+        <th scope="row">{{$user->id_student}}</th>
+        <th>{{$user->name_student}}</th>
+        <th>{{$user->lastname_student}}</th>
         <th>{{$user->deanery}}</th>
         <th><a  href="{{ action('PendingapplicationController@updateNoCard', $user->id) }}"><img src={{ asset('images/notAkcept.png') }}  /></a></th>
         @endif
@@ -52,9 +52,9 @@
     @foreach ($userlist as $user)
     <tr>
     @if ($user->liblary == 'Zakonczona' OR $user->liblary == 'Niepowodzenie' && $user->card == 'W realizacji')
-        <th scope="row">{{$user->id}}</th>
-        <th>{{$user->name}}</th>
-        <th>{{$user->lastname}}</th>
+        <th scope="row">{{$user->id_student}}</th>
+        <th>{{$user->name_student}}</th>
+        <th>{{$user->lastname_student}}</th>
         <th>{{$user->liblary}}</th>
         <th><a  href="{{ action('PendingapplicationController@updateNoCard', $user->id) }}"><img src={{ asset('images/notAkcept.png') }}  /></a></th>
         @endif
@@ -78,9 +78,9 @@
     @foreach ($userlist as $user)
     <tr>
     @if ($user->dormitory == 'Zakonczona' OR $user->dormitory == 'Niepowodzenie' && $user->card == 'W realizacji')
-        <th scope="row">{{$user->id}}</th>
-        <th>{{$user->name}}</th>
-        <th>{{$user->lastname}}</th>
+        <th scope="row">{{$user->id_student}}</th>
+        <th>{{$user->name_student}}</th>
+        <th>{{$user->lastname_student}}</th>
         <th>{{$user->dormitory}}</th>
         <th><a  href="{{ action('PendingapplicationController@updateNoCard', $user->id) }}"><img src={{ asset('images/notAkcept.png') }}  /></a></th>
         @endif

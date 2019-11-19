@@ -3,14 +3,8 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use App\Card;
-use App\Department;
-use App\Direction;
-use App\Commission;
 use Request;
-use App\Repositories\UserRepository;
-use App\Repositories\CardRepository;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -51,8 +45,7 @@ class PendingapplicationController
     {
         DB::table('Cards')
             ->where('id', $id)
-            ->update(['deanery' => 'Niepowodzenie',
-                'commente' => Request('commente')]);
+            ->update(['deanery' => 'Niepowodzenie']);
 
         return redirect()->action('PendingapplicationController@index');
     }
