@@ -64,7 +64,7 @@ Route::get('/userrole', 'UserroleController@index');
 Route::get('/userrole/edit/{id}', 'UserroleController@edit');
 Route::get('/userrole/registrations', 'UserroleController@showRegistrations');
 Route::post('/userrole/regiserEmployee', 'UserroleController@regiserEmployee');
-Route::post('/userrole/update','UserroleController@update');
+Route::post('/userrole/update/{id}','UserroleController@update');
 
 Route::get('/dataapplication', 'DataapplicationController@index');
 

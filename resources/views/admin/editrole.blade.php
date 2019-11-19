@@ -5,10 +5,11 @@
 <h2 style="text-align: center">PANEL - Edycja roli pracownika</h2></br>
 
 <div class="panel-body" >
-    <form action="{{ action('UserroleController@update', $worker->user_id) }}" method="post" role="form" >
+    @foreach ($workerlist as $worker)
+    <form action="{{ action('UserroleController@update', $worker->user_id   ) }}" method="post" role="form" >
         {{ csrf_field() }}
         <table align="center"  style="width: 40%;" class="table">
-            @foreach ($workerlist as $worker)
+
             <tr>
                 <td>Numer pracownika (login):</td>
                 <td >{{$worker->user_id}}</td>
