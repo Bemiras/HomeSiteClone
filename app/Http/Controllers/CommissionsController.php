@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Commission;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Request;
 use App\Repositories\UserRepository;
 
@@ -39,10 +40,11 @@ class CommissionsController
                 'users.lastname AS workerCzlonek_lastname','commissions.name AS commissionCzlonek_name')
             ->get();
 
-        return view('admin.commissions',["userlistPrzewodniczacy"=>$userPrzewodniczacy,
-            "userlistZastepca"=>$userZastepca,"userlistSekretarz"=>$userSekretarz,
+        return view('admin.commissions',[
+            "userlistPrzewodniczacy"=>$userPrzewodniczacy,
+            "userlistZastepca"=>$userZastepca,
+            "userlistSekretarz"=>$userSekretarz,
             "userlistCzlonek"=>$userCzlonek]);
-            "userlistZastepca"=>$userZastepca,"userlistSekretarz"=>$userSekretarz]);
         }
     }
 
