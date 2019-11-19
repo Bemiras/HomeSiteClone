@@ -34,4 +34,40 @@ class ConsideredapplicationController
         }
     }
 
+    public function updateResetDeanery($id)
+    {
+        DB::table('Cards')
+            ->where('id', $id)
+            ->update(['deanery' => 'W trakcie']);
+
+        return redirect()->action('ConsideredapplicationController@index');
+    }
+
+    public function updateResetLiblary($id)
+    {
+        DB::table('Cards')
+            ->where('id', $id)
+            ->update(['liblary' => 'W trakcie']);
+
+        return redirect()->action('ConsideredapplicationController@index');
+    }
+
+    public function updateResetDormitory($id)
+    {
+        DB::table('Cards')
+            ->where('id', $id)
+            ->update(['dormitory' => 'W trakcie']);
+
+        return redirect()->action('ConsideredapplicationController@index');
+    }
+
+    public function updateResetPromoter($id)
+    {
+        DB::table('Cards')
+            ->where('id', $id)
+            ->update(['promoter' => 'W trakcie']);
+
+        return redirect()->action('ConsideredapplicationController@index');
+    }
+
 }

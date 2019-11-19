@@ -28,7 +28,7 @@
         <th>{{$user->name_student}}</th>
         <th>{{$user->lastname_student}}</th>
         <th>{{$user->deanery}}</th>
-        <th><a  href="{{ action('PendingapplicationController@updateNoCard', $user->id) }}">
+        <th><a  href="{{ action('ConsideredapplicationController@updateResetDeanery', $user->id) }}">
                 <img src={{ asset('images/notAkcept.png') }}  /></a></th>
         @endif
     </tr>
@@ -57,7 +57,7 @@
         <th>{{$user->name_student}}</th>
         <th>{{$user->lastname_student}}</th>
         <th>{{$user->liblary}}</th>
-        <th><a  href="{{ action('PendingapplicationController@updateNoCard', $user->id) }}">
+        <th><a  href="{{ action('ConsideredapplicationController@updateResetLiblary', $user->id) }}">
                 <img src={{ asset('images/notAkcept.png') }}  /></a></th>
         @endif
     </tr>
@@ -85,7 +85,7 @@
         <th>{{$user->name_student}}</th>
         <th>{{$user->lastname_student}}</th>
         <th>{{$user->dormitory}}</th>
-        <th><a  href="{{ action('PendingapplicationController@updateNoCard', $user->id) }}">
+        <th><a  href="{{ action('ConsideredapplicationController@updateResetDormitory', $user->id) }}">
                 <img src={{ asset('images/notAkcept.png') }}  /></a></th>
         @endif
     </tr>
@@ -113,7 +113,7 @@
         <th>{{$user->name_student}}</th>
         <th>{{$user->lastname_student}}</th>
         <th>{{$user->promoter}}</th>
-        <th><a  href="{{ action('PendingapplicationController@updateNoPromoter', $user->id_card) }}">
+        <th><a  href="{{ action('ConsideredapplicationController@updateResetPromoter', $user->id_card) }}">
                 <img src={{ asset('images/notAkcept.png') }}  /></a></th></th>
         @endif
     </tr>
@@ -143,8 +143,6 @@
         <th>{{$user->lastname}}</th>
         <th>{{$user->name_department}}</th>
         <th>{{$user->name_direction}}</th>
-        <th><a  href="{{ action('PendingapplicationController@updateNoCard', $user->id) }}">
-                <img src={{ asset('images/notAkcept.png') }}  /></a></th>
         @endif
     </tr>
     @endforeach

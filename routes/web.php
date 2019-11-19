@@ -45,7 +45,12 @@ Route::get('/pendingapplication/updateNoCard/{id}', 'PendingapplicationControlle
 Route::get('/pendingapplication/updateYesPromoter/{id}', 'PendingapplicationController@updateYesPromoter');
 Route::get('/pendingapplication/updateNoPromoter/{id}', 'PendingapplicationController@updateNoPromoter');
 
+
 Route::get('/consideredapplication', 'ConsideredapplicationController@index');
+Route::get('/consideredapplication/updateResetDeanery/{id}', 'ConsideredapplicationController@updateResetDeanery');
+Route::get('/consideredapplication/updateResetLiblary/{id}', 'ConsideredapplicationController@updateResetLiblary');
+Route::get('/consideredapplication/updateResetDormitory/{id}', 'ConsideredapplicationController@updateResetDormitory');
+Route::get('/consideredapplication/updateResetPromoter/{id}', 'ConsideredapplicationController@updateResetPromoter');;
 
 
 Route::get('/departmentoffer', 'DepartmentofferController@index');
