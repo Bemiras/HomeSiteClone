@@ -9,8 +9,10 @@
 <table align="center"  style="width: 70%;" class="table">
     <thead>
     <tr>
+        <th><h4>Wyślij odpowiedz</h4></th>
         <th><h4>Odbiorca</h4></th>
         <th><h4>Treść</h4></th>
+        <th><h4>Data</h4></th>
 
     </tr>
     </thead>
@@ -18,8 +20,12 @@
     @foreach ($messagelistRecipient as $messageRecipient)
         @if($messageRecipient->sender == Auth::user()->id)
         <tr>
-            <th>{{$messageRecipient->messageRecipient_name}} {{$messageRecipient->messageRecipient_lastname}} </th>
+            <th><a  href="{{ action('MessageController@newMessage', $messageRecipient->messageRecipient_id) }} "target="_blank">
+                    <img src={{ asset('images/message.png') }}  /></a></th>
+            <th>{{$messageRecipient->messageRecipient_name}} {{$messageRecipient->messageRecipient_lastname}}
+                ({{$messageRecipient->messageRecipient_id}}) </th>
             <th>{{$messageRecipient->message}}</th>
+            <th>{{$messageRecipient->data}}</th>
         </tr>
         @endif
     @endforeach

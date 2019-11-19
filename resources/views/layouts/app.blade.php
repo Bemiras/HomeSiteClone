@@ -142,7 +142,6 @@
                                 </ul>
                             </li>
 
-
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                 Pracownicy <span class="caret"></span>
@@ -175,20 +174,6 @@
                                 </li>
                                 <li>
                                     <a class="nav-link" href="{{ URL::to('commissions/create') }}">Dodaj Komisje</a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                Korespondencje <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="nav-link" href="{{ URL::to('message') }}">Odebrane</a>
-                                </li>
-                                <li>
-                                    <a class="nav-link" href="{{ URL::to('messageSend') }}">Wysłane</a>
                                 </li>
                             </ul>
                         </li>
