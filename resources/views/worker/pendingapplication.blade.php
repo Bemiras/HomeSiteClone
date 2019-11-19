@@ -24,9 +24,9 @@
     @foreach ($userlist as $user)
     <tr>
     @if ($user->deanery == 'W trakcie' && $user->card == 'W realizacji' )
-        <th scope="row">{{$user->id}}</th>
-        <th>{{$user->name}}</th>
-        <th>{{$user->lastname}}</th>
+        <th scope="row">{{$user->id_student}}</th>
+        <th>{{$user->name_student}}</th>
+        <th>{{$user->lastname_student}}</th>
         <th>{{$user->deanery}}</th>
         <th><a  href="{{ action('PendingapplicationController@updateYesDeanery', $user->id_card) }}"><img src={{ asset('images/akcept.png') }}  /></a></th>
         <th><a  href="{{ action('PendingapplicationController@updateNoDeanery', $user->id_card) }}"><img src={{ asset('images/notAkcept.png') }}  /></a></th>
@@ -52,9 +52,9 @@
     @foreach ($userlist as $user)
     <tr>
     @if ($user->liblary == 'W trakcie' && $user->card == 'W realizacji')
-        <th scope="row">{{$user->id}}</th>
-        <th>{{$user->name}}</th>
-        <th>{{$user->lastname}}</th>
+        <th scope="row">{{$user->id_student}}</th>
+        <th>{{$user->name_student}}</th>
+        <th>{{$user->lastname_student}}</th>
         <th>{{$user->liblary}}</th>
         <th><a  href="{{ action('PendingapplicationController@updateYesLiblary', $user->id_card) }}"><img src={{ asset('images/akcept.png') }}  /></a></th>
         <th><a  href="{{ action('PendingapplicationController@updateNoLiblary', $user->id_card) }}"><img src={{ asset('images/notAkcept.png') }}  /></a></th>
@@ -80,9 +80,9 @@
     @foreach ($userlist as $user)
     <tr>
     @if ($user->dormitory == 'W trakcie' && $user->card == 'W realizacji')
-        <th scope="row">{{$user->id}}</th>
-        <th>{{$user->name}}</th>
-        <th>{{$user->lastname}}</th>
+        <th scope="row">{{$user->id_student}}</th>
+        <th>{{$user->name_student}}</th>
+        <th>{{$user->lastname_student}}</th>
         <th>{{$user->dormitory}}</th>
         <th><a  href="{{ action('PendingapplicationController@updateYesDormitory', $user->id_card) }}"><img src={{ asset('images/akcept.png') }}  /></a></th>
         <th><a  href="{{ action('PendingapplicationController@updateNoDormitory', $user->id_card) }}"><img src={{ asset('images/notAkcept.png') }}  /></a></th>
@@ -135,10 +135,10 @@
     <tbody>
     @foreach ($userlist->unique('name') as $user)
     <tr>
-        @if ($user->card == 'Rozpatrzenie' && $user->commission_id == $user->number_commission && Auth::user()->id == $user->usernumber_commission)
+        @if ($user->card == 'Rozpatrzenie' && Auth::user()->id == $user->worker_commission_id && $user->commission_id == $user->user_commission_id )
         <th scope="row">{{$user->id_student}}</th>
         <th>{{$user->name_student}}</th>
-        <th>{{$user->lastname}}</th>
+        <th>{{$user->lastname_student}}</th>
         <th>{{$user->name_department}}</th>
         <th>{{$user->name_direction}}</th>
         <th><a  href="{{ action('PendingapplicationController@updateYesCard', $user->id) }}"><img src={{ asset('images/akcept.png') }}  /></a></th>
