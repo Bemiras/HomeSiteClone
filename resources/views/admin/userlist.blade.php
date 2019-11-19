@@ -10,7 +10,7 @@
 <table align="center"  style="width: 70%;" class="table">
     <thead>
     <tr>
-        <th><h4>Numer studenta/pracownika</h4></th>
+        <th><h4>Numer studenta</h4></th>
         <th><h4>Imię</h4></th>
         <th><h4>Nazwisko</h4></th>
         <th><h4>Wydział</h4></th>
