@@ -116,7 +116,7 @@
                                     <a class="nav-link" href="{{ URL::to('message') }}">Odebrane</a>
                                 </li>
                                 <li>
-                                    <a class="nav-link" href="{{ URL::to('message') }}">Wysłane</a>
+                                    <a class="nav-link" href="{{ URL::to('messageSend') }}">Wysłane</a>
                                 </li>
                             </ul>
                         </li>
@@ -188,7 +188,7 @@
                                     <a class="nav-link" href="{{ URL::to('message') }}">Odebrane</a>
                                 </li>
                                 <li>
-                                    <a class="nav-link" href="{{ URL::to('message') }}">Wysłane</a>
+                                    <a class="nav-link" href="{{ URL::to('messageSend') }}">Wysłane</a>
                                 </li>
                             </ul>
                         </li>
