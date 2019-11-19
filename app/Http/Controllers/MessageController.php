@@ -15,7 +15,11 @@ class MessageController
         if(!Auth::check())
             return redirect('/login');
         else{
-        return view('message');
+
+            $message = DB::table('messages')
+                ->get();
+
+        return view('message',['messagelist'=>$message]);
         }
     }
 
@@ -37,6 +41,8 @@ class MessageController
         $message->recipient =  $request->input('recipient');
         $message->message =  $request->input('message');
         $message->save();
+
+
         return redirect()->action('MessageController@index');
 
     }
