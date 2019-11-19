@@ -68,8 +68,18 @@
                             <a class="nav-link" href="{{ URL::to('card') }}">Karta obiegowa</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ URL::to('message') }}">Korespondencje</a>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                                Korespondencje <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="nav-link" href="{{ URL::to('message') }}">Odebrane</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="{{ URL::to('messageSend') }}">Wysłane</a>
+                                </li>
+                            </ul>
                         </li>
                         @endif
 
@@ -97,8 +107,18 @@
                             <a class="nav-link" href="{{ URL::to('consideredapplication') }}">Rozpatrzone podania</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ URL::to('message') }}">Korespondencje</a>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                                Korespondencje <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="nav-link" href="{{ URL::to('message') }}">Odebrane</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="{{ URL::to('message') }}">Wysłane</a>
+                                </li>
+                            </ul>
                         </li>
                         @endif
 
@@ -159,8 +179,18 @@
                             </ul>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ URL::to('message') }}">Korespondencje</a>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                                Korespondencje <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="nav-link" href="{{ URL::to('message') }}">Odebrane</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="{{ URL::to('message') }}">Wysłane</a>
+                                </li>
+                            </ul>
                         </li>
 
                         <li class="nav-item">

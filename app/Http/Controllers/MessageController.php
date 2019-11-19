@@ -16,10 +16,13 @@ class MessageController
             return redirect('/login');
         else{
 
-            $message = DB::table('messages')
+            $messageSender = DB::table('messages')
+                ->join('users','messages.sender','=','users.id')
+                ->select('messages.*','users.id AS messageSender_id','users.name AS messageSender_name',
+                    'users.lastname AS messageSender_lastname')
                 ->get();
 
-        return view('message',['messagelist'=>$message]);
+        return view('message',['messagelistSender'=>$messageSender]);
         }
     }
 
@@ -45,5 +48,20 @@ class MessageController
 
         return redirect()->action('MessageController@index');
 
+    }
+
+    public function wyslane(){
+        if(!Auth::check())
+            return redirect('/login');
+        else{
+
+            $messageRecipient = DB::table('messages')
+                ->join('users','messages.recipient','=','users.id')
+                ->select('messages.*','users.id AS messageRecipient_id','users.name AS messageRecipient_name',
+                    'users.lastname AS messageRecipient_lastname')
+                ->get();
+
+            return view('messageSend',['messagelistRecipient'=>$messageRecipient]);
+        }
     }
 }

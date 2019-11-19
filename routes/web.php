@@ -29,6 +29,7 @@ Route::get('/card', 'CardController@index');
 Route::post('/card/store', 'CardController@store');
 
 Route::get('/message', 'MessageController@index');
+Route::get('/messageSend', 'MessageController@wyslane');
 Route::get('/message/newMessage/{id}', 'MessageController@newMessage');
 Route::post('/message/sendMessage/{id}', 'MessageController@sendMessage');
 

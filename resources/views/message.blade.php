@@ -4,26 +4,24 @@
 
 
 @section('content')
-<h2 style="text-align: center">PANEL - Wiadomosci</h2><br>
+<h2 style="text-align: center">PANEL - Wiadomosci odebrane </h2><br>
 
-<table align="center"  style="width: 40%;" class="table">
+<table align="center"  style="width: 70%;" class="table">
     <thead>
     <tr>
-        <th>Wysyłający (id_user)</th>
-        <th>Odbierajacy (id_user)</th>
-        <th>Treść</th>
+        <th><h4>Nadawca</h4></th>
+        <th><h4>Treść</h4></th>
 
     </tr>
     </thead>
     <tbody>
-    @foreach ($messagelist as $message)
-    <tr>
-        <th>{{$message->sender}}</th>
-        <th>{{$message->recipient}}</th>
-            @if($message->recipient == Auth::user()->id}})
-            <th>{{$message->message}}</th>
-            @endif
-    </tr>
+    @foreach ($messagelistSender as $messageSender)
+        @if($messageSender->recipient == Auth::user()->id)
+        <tr>
+            <th>{{$messageSender->messageSender_name}} {{$messageSender->messageSender_lastname}} </th>
+            <th>{{$messageSender->message}}</th>
+        </tr>
+        @endif
     @endforeach
     </tbody>
 </table>
