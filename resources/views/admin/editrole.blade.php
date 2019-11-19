@@ -29,13 +29,13 @@
             <tr>
                 <td>Specjalizacja:</td>
                 <td><select align="center" style="width: 70%;" name="specialization">
-                            <option selected>Promotor</option>
-                            <option>Sekretarz</option>
-                            <option>Akademik</option>
-                            <option>Dziekanat</option>
-                            <option>Biblioteka</option>
-                            <option>Studium Wychowania fizycznego</option>
-                            <option>Katedra</option>
+                            <option selected>promotor</option>
+                            <option>sekretarz</option>
+                            <option>akademik</option>
+                            <option>dziekanat</option>
+                            <option>biblioteka</option>
+                            <option>studium wychowania fizycznego</option>
+                            <option>katedra</option>
                             <option>NULL</option>
                         </select></br></td>
             </tr>
