@@ -76,8 +76,7 @@ Route::get('/commissions', 'CommissionsController@index');
 Route::get('/commissions/create', 'CommissionsController@create');
 Route::post('/commissions/store', 'CommissionsController@store');
 Route::get('/commissions/destroy/{id}', 'CommissionsController@destroy');
-
-Route::post('/commissions/update','CommissionsController@update');
+Route::post('/commissions/update/{id}','CommissionsController@update');
 Route::get('/commissions/edit/{id}', 'CommissionsController@edit');
 
 Route::get('/dataChangeRequests', 'dataChangeRequestsController@index');

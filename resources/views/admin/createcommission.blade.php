@@ -26,7 +26,7 @@
 
         <select align="center"  style="width: 40%;" name="workerPrzewodniczacy">
             @foreach ($workers as $worker)
-            <option value="{{ $worker->id}}">{{ $worker->name }} {{ $worker->lastname }}- Wydział {{ $worker->department }}</option>
+            <option value="{{ $worker->id}}">{{ $worker->name }} {{ $worker->lastname }}</option>
             @endforeach
         </select>
     </div></br>
@@ -36,7 +36,7 @@
 
         <select align="center"  style="width: 40%;" name="workerZastepca">
             @foreach ($workers as $worker)
-            <option value="{{ $worker->id}}">{{ $worker->name }} {{ $worker->lastname }}- Wydział {{ $worker->department }}</option>
+            <option value="{{ $worker->id}}">{{ $worker->name }} {{ $worker->lastname }}</option>
             @endforeach
         </select>
     </div></br>
@@ -47,7 +47,7 @@
 
         <select align="center"  style="width: 40%;" name="workerSekretarz">
             @foreach ($workers as $worker)
-            <option value="{{ $worker->id}}">{{ $worker->name }} {{ $worker->lastname }}- Wydział {{ $worker->department }}</option>
+            <option value="{{ $worker->id}}">{{ $worker->name }} {{ $worker->lastname }}</option>
             @endforeach
         </select>
     </div></br>
@@ -57,7 +57,7 @@
 
         <select align="center"  style="width: 40%;" name="workerCzlonek">
             @foreach ($workers as $worker)
-            <option value="{{ $worker->id}}">{{ $worker->name }} {{ $worker->lastname }}- Wydział {{ $worker->department }}</option>
+            <option value="{{ $worker->id}}">{{ $worker->name }} {{ $worker->lastname }}</option>
             @endforeach
         </select>
     </div></br>

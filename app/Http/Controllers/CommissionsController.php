@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 use App\Commission;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use Request;
+use Illuminate\Http\Request;
 use App\Repositories\UserRepository;
 
 class CommissionsController
@@ -19,7 +19,8 @@ class CommissionsController
         $userPrzewodniczacy = DB::table('commissions')
             ->join('users','commissions.workerPrzewodniczacy','=','users.id')
             ->select('users.*','users.id AS workerPrzewodniczacy_id','users.name AS workerPrzewodniczacy_name',
-                'commissions.name AS commissionPrzewodniczacy_name','users.lastname AS workerPrzewodniczacy_lastname')
+                'commissions.name AS commissionPrzewodniczacy_name','users.lastname AS workerPrzewodniczacy_lastname',
+                'commissions.id AS commission_id')
             ->get();
 
         $userZastepca = DB::table('commissions')
@@ -57,9 +58,14 @@ class CommissionsController
     }
 
     public function edit($id, UserRepository $userRepo){
-        $commission  = Commission::find($id);
-        $workers = $userRepo->getAllWorkers();
-        return view('admin.editcommission', ['commission' => $commission,'workers'=>$workers]);
+
+        $commission = DB::table('commissions')
+            ->join('users','commissions.workerPrzewodniczacy','=','users.id')
+            ->where("commissions.id","$id")
+            ->select('commissions.id AS commission_id')
+            ->get();
+        $worker = $userRepo->getAllWorkers();
+        return view('admin.editcommission', ['commissionlist' => $commission,'workers'=>$worker]);
     }
 
     public function destroy($id){
@@ -80,17 +86,16 @@ class CommissionsController
         return redirect()->action('CommissionsController@index');
     }
 
-    public function update()
-    {
-        $commission  = Commission::find(Request::input('id'));
-        $commission->number_commission =  Request::input('number_commission');
-        $commission->role_commission =  Request::input('role');
-        $commission->usernumber_commission = Request('worker');
-        $commission->name = Request('name');
+    public function update($id, Request $request){
+        $commission  = Commission::find($id);
+        $commission->name = $request->input('name');
+        $commission->workerPrzewodniczacy = $request->input('workerPrzewodniczacy');
+        $commission->workerZastepca = $request->input('workerZastepca');
+        $commission->workerSekretarz = $request->input('workerSekretarz');
+        $commission->workerCzlonek = $request->input('workerCzlonek');
         $commission->save();
         return redirect()->action('CommissionsController@index');
     }
-
 
 }
 

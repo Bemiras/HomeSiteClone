@@ -25,8 +25,8 @@
         <th>{{$userPrzewodniczacy->workerPrzewodniczacy_name}}</th>
         <th>{{$userPrzewodniczacy->workerPrzewodniczacy_lastname}}</th>
         <th>Przewodniczacy</th>
-        <th><a  href="{{ action('CommissionsController@edit', $userPrzewodniczacy->id) }}"><img src={{ asset('images/edit.png') }}  /></a></th>
-        <th><a  href="{{ action('CommissionsController@destroy', $userPrzewodniczacy->id) }}"><img src={{ asset('images/delete.png') }}  /></a></th>
+        <th><a  href="{{ action('CommissionsController@edit', $userPrzewodniczacy->commission_id) }}"><img src={{ asset('images/edit.png') }}  /></a></th>
+        <th><a  href="{{ action('CommissionsController@destroy', $userPrzewodniczacy->commission_id) }}"><img src={{ asset('images/delete.png') }}  /></a></th>
     </tr>
 
             @foreach ($userlistZastepca as $userZastepca )

@@ -30,8 +30,7 @@ class UserroleController
         }
     }
 
-    public function edit($id, UserRepository $userRepo){
-        //$workers  = User::find($id);
+    public function edit($id){
         $workers = DB::table('users')
             ->join('departments', 'departments.id', '=', 'users.department')
             ->where("users.id","$id")
