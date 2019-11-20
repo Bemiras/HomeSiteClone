@@ -143,6 +143,8 @@
         <th>{{$user->lastname}}</th>
         <th>{{$user->name_department}}</th>
         <th>{{$user->name_direction}}</th>
+        <th><a  href="{{ action('ConsideredapplicationController@updateResetPromoter', $user->id_card) }}">
+                <img src={{ asset('images/notAkcept.png') }}  /></a></th></th>
         @endif
     </tr>
     @endforeach

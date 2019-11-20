@@ -19,7 +19,8 @@ class MessageController
             $messageSender = DB::table('messages')
                 ->join('users','messages.sender','=','users.id')
                 ->select('messages.*','users.id AS messageSender_id','users.name AS messageSender_name',
-                    'users.lastname AS messageSender_lastname','messages.created_at AS data')
+                    'users.lastname AS messageSender_lastname','users.specialization AS messageSender_specialization',
+                    'messages.created_at AS data')
                 ->orderby('data','DESC')
                 ->get();
 
@@ -47,7 +48,7 @@ class MessageController
         $message->save();
 
 
-        return redirect()->action('MessageController@index');
+        return redirect()->action('MessageController@wyslane');
 
     }
 
@@ -59,7 +60,8 @@ class MessageController
             $messageRecipient = DB::table('messages')
                 ->join('users','messages.recipient','=','users.id')
                 ->select('messages.*','users.id AS messageRecipient_id','users.name AS messageRecipient_name',
-                    'users.lastname AS messageRecipient_lastname','messages.created_at AS data')
+                    'users.lastname AS messageRecipient_lastname','users.specialization AS messageRecipient_specialization',
+                    'messages.created_at AS data')
                 ->orderby('data','DESC')
                 ->get();
 
