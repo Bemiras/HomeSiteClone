@@ -27,7 +27,7 @@ class ConsideredapplicationController
                     'cards.promoter AS promoter','cards.userPromoter AS userPromoter',
                     'cards.deanery AS deanery','cards.liblary AS liblary','cards.dormitory AS dormitory',
                     'cards.commission_id AS user_commission_id','commissions.workerSekretarz As worker_commission_id',
-                    'commissions.id As commission_id')
+                    'commissions.id As commission_id','users.id_card AS id_card')
                 ->get();
 
         return view('worker.consideredapplication',["userlist"=>$users]);

@@ -28,7 +28,7 @@
         <th>{{$user->name_student}}</th>
         <th>{{$user->lastname_student}}</th>
         <th>{{$user->deanery}}</th>
-        <th><a  href="{{ action('ConsideredapplicationController@updateResetDeanery', $user->id) }}">
+        <th><a  href="{{ action('ConsideredapplicationController@updateResetDeanery', $user->id_card) }}">
                 <img src={{ asset('images/notAkcept.png') }}  /></a></th>
         @endif
     </tr>
@@ -57,7 +57,7 @@
         <th>{{$user->name_student}}</th>
         <th>{{$user->lastname_student}}</th>
         <th>{{$user->liblary}}</th>
-        <th><a  href="{{ action('ConsideredapplicationController@updateResetLiblary', $user->id) }}">
+        <th><a  href="{{ action('ConsideredapplicationController@updateResetLiblary', $user->id_card) }}">
                 <img src={{ asset('images/notAkcept.png') }}  /></a></th>
         @endif
     </tr>
@@ -85,7 +85,7 @@
         <th>{{$user->name_student}}</th>
         <th>{{$user->lastname_student}}</th>
         <th>{{$user->dormitory}}</th>
-        <th><a  href="{{ action('ConsideredapplicationController@updateResetDormitory', $user->id) }}">
+        <th><a  href="{{ action('ConsideredapplicationController@updateResetDormitory', $user->id_card) }}">
                 <img src={{ asset('images/notAkcept.png') }}  /></a></th>
         @endif
     </tr>
