@@ -177,11 +177,9 @@
                                 </li>
                             </ul>
                         </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ URL::to('news') }}">Aktualności</a>
-                        </li>
                         @endif
+
+
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                 {{ Auth::user()->name }} <span class="caret"></span>
