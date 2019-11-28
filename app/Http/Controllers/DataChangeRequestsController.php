@@ -29,6 +29,7 @@ class DataChangeRequestsController extends Controller
             $dataToStore->user_id = Auth::user()->id;
             $dataToStore->name = $request->input('name');
             $dataToStore->lastname = $request->input('lastname');
+            $dataToStore->email = $request->input('email');
             $dataToStore->typestudy = $request->input('typestudy');
             $dataToStore->levelstudy = $request->input('levelstudy');
             $dataToStore->department = $request->input('department');
