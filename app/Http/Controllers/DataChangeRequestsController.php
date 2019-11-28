@@ -15,7 +15,7 @@ class DataChangeRequestsController extends Controller
 
     public function index()
     {
-        if (!Auth::check())
+        if (!Auth::check() || Auth::user()->role == 'administrator')
             return redirect('/login');
         else {
             $dataToChange = ApplicationForChangingData::where('user_id', Auth::user()->id)->get();
