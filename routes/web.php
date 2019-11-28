@@ -15,21 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/student', 'StudentController@index');
-Route::get('/worker', 'WorkerController@index');
-Route::get('/admin', 'AdminController@index');
-Route::get('/news', 'NewsController@index');
-Route::get('/dataapplication', 'DataapplicationController@index');
-//Route::get('/home', 'HomeController@index')->name('home');
-
-//Wszystkie trasy po wyżej są tak jakby nie potrzebne
-
 Route::get('/home', 'HomeController@index');
 
 Route::get('/about', 'AboutController@index');
 
 
 Route::group(['middleware' => ['worker'or 'student']], function () {
+
     Route::get('/message', 'MessageController@index');
     Route::get('/messageSend', 'MessageController@wyslane');
     Route::get('/message/newMessage/{id}', 'MessageController@newMessage');
@@ -100,6 +92,7 @@ Route::group(['middleware' => ['admin']], function () {
 
 
 Route::group(['middleware' => ['student']], function () {
+
     Route::get('/card', 'CardController@index');
     Route::post('/card/store', 'CardController@store');
 });
