@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\DB;
 class ConsideredapplicationController
 {
     public function index(){
-        if(!Auth::check())
+        if(!Auth::check() || Auth::user()->role == 'administrator')
             return redirect('/login');
         else{
 
