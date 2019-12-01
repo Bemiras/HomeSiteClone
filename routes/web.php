@@ -95,6 +95,7 @@ Route::group(['middleware' => ['student']], function () {
 
     Route::get('/card', 'CardController@index');
     Route::post('/card/store', 'CardController@store');
+    Route::post('/card/update', 'CardController@updateCard');
 });
 
 Auth::routes();

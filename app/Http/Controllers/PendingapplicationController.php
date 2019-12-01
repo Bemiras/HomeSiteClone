@@ -127,4 +127,13 @@ class PendingapplicationController
 
         return redirect()->action('PendingapplicationController@index');
     }
+
+    public function updateCard($id)
+    {
+        DB::table('Users')
+            ->where('id', $id)
+            ->update(['card' => 'Zakonczona']);
+
+        return redirect()->action('CardController@index');
+    }
 }

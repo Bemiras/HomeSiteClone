@@ -66,9 +66,9 @@
         </tr>
     </tr>
     @endforeach
-@if($card->dormitory == 'zakonczona' && $card->liblary == 'zakonczona' && $card->deanery == 'zakonczona' && $card->promoter == 'zakonczona')
-    <input type="submit" value="Wyślij kartę" class="btn btn-primary" />
-        Auth::user()->card = 'zakonczona';
+
+    @if($card->dormitory == 'Zakonczona' && $card->liblary == 'Zakonczona' && $card->deanery == 'Zakonczona' && $card->promoter == 'Zakonczona')
+     <a href="{{ action('CardController@updateCard') }}">Zakończ</a>
     @endif
             
 </table>
