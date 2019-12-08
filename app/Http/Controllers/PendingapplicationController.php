@@ -38,7 +38,7 @@ class PendingapplicationController
             ->where('id', $id)
             ->update(['deanery' => 'Zakonczona']);
 
-        return redirect()->action('PendingapplicationController@index');
+        return redirect()->action('PendingapplicationController@updateCard',$id);
     }
 
     public function updateNoDeanery($id)
@@ -56,7 +56,7 @@ class PendingapplicationController
             ->where('id', $id)
             ->update(['liblary' => 'Zakonczona']);
 
-        return redirect()->action('PendingapplicationController@index');
+        return redirect()->action('PendingapplicationController@updateCard',$id);
     }
 
     public function updateYesDormitory($id)
@@ -65,7 +65,7 @@ class PendingapplicationController
             ->where('id', $id)
             ->update(['dormitory' => 'Zakonczona']);
 
-        return redirect()->action('PendingapplicationController@index');
+        return redirect()->action('PendingapplicationController@updateCard',$id);
     }
 
     public function updateYesPromoter($id)
@@ -74,7 +74,7 @@ class PendingapplicationController
             ->where('id', $id)
             ->update(['promoter' => 'Zakonczona']);
 
-        return redirect()->action('PendingapplicationController@index');
+        return redirect()->action('PendingapplicationController@updateCard',$id);
     }
 
 
@@ -125,15 +125,25 @@ class PendingapplicationController
             ->where('id', $id)
             ->delete();
 
-        return redirect()->action('PendingapplicationController@index');
+        return redirect()->action('PendingapplicationController@updateCard, $user->id_card');
     }
+
 
     public function updateCard($id)
     {
-        DB::table('Users')
-            ->where('id', $id)
-            ->update(['card' => 'Zakonczona']);
+        $user = DB::table('Cards')->find($id);
+        if($user->deanery == 'Zakonczona' && $user->promoter == 'Zakonczona' &&
+            $user->liblary == 'Zakonczona' && $user->dormitory == 'Zakonczona'){
 
-        return redirect()->action('CardController@index');
+            DB::table('Users')
+                ->where('id_card', $id)
+                ->update(['card' => 'Zakonczona']);
+
+            return redirect()->action('PendingapplicationController@index');
+        }
+        else{
+            return redirect()->action('PendingapplicationController@index');
+        }
     }
+
 }

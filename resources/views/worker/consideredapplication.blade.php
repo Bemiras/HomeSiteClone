@@ -23,7 +23,8 @@
     <tbody>
     @foreach ($userlist as $user)
     <tr>
-    @if ($user->deanery == 'Zakonczona' OR $user->deanery == 'Niepowodzenie' && $user->card == 'W realizacji')
+    @if ($user->deanery == 'Zakonczona' && $user->card == 'W realizacji'
+        OR $user->deanery == 'Niepowodzenie' && $user->card == 'W realizacji')
         <th scope="row">{{$user->id_student}}</th>
         <th>{{$user->name_student}}</th>
         <th>{{$user->lastname_student}}</th>
@@ -52,7 +53,8 @@
     <tbody>
     @foreach ($userlist as $user)
     <tr>
-    @if ($user->liblary == 'Zakonczona' OR $user->liblary == 'Niepowodzenie' && $user->card == 'W realizacji')
+    @if ($user->liblary == 'Zakonczona' && $user->card == 'W realizacji'
+        OR $user->liblary == 'Niepowodzenie' && $user->card == 'W realizacji')
         <th scope="row">{{$user->id_student}}</th>
         <th>{{$user->name_student}}</th>
         <th>{{$user->lastname_student}}</th>
@@ -80,7 +82,8 @@
     <tbody>
     @foreach ($userlist as $user)
     <tr>
-    @if ($user->dormitory == 'Zakonczona' OR $user->dormitory == 'Niepowodzenie' && $user->card == 'W realizacji')
+    @if ($user->dormitory == 'Zakonczona' && $user->card == 'W realizacji'
+        OR $user->dormitory == 'Niepowodzenie' && $user->card == 'W realizacji')
         <th scope="row">{{$user->id_student}}</th>
         <th>{{$user->name_student}}</th>
         <th>{{$user->lastname_student}}</th>
@@ -108,7 +111,8 @@
     <tbody>
     @foreach ($userlist as $user)
     <tr>
-        @if ($user->promoter == 'Zakonczona' OR $user->promoter == 'Niepowodzenie' && $user->card == 'W realizacji' && Auth::user()->id == $user->userPromoter)
+        @if ($user->promoter == 'Zakonczona' && $user->card == 'W realizacji' && Auth::user()->id == $user->userPromoter
+        OR $user->promoter == 'Niepowodzenie' && $user->card == 'W realizacji' && Auth::user()->id == $user->userPromoter)
         <th scope="row">{{$user->id_student}}</th>
         <th>{{$user->name_student}}</th>
         <th>{{$user->lastname_student}}</th>

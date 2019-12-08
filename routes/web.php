@@ -45,6 +45,7 @@ Route::group(['middleware' => ['worker']], function () {
     Route::get('/pendingapplication/updateNoCard/{id}', 'PendingapplicationController@updateNoCard');
     Route::get('/pendingapplication/updateYesPromoter/{id}', 'PendingapplicationController@updateYesPromoter');
     Route::get('/pendingapplication/updateNoPromoter/{id}', 'PendingapplicationController@updateNoPromoter');
+    Route::get('/pendingapplication/updateCard/{id}', 'PendingapplicationController@updateCard');
 
     Route::get('/consideredapplication', 'ConsideredapplicationController@index');
     Route::get('/consideredapplication/updateResetDeanery/{id}', 'ConsideredapplicationController@updateResetDeanery');
@@ -95,7 +96,6 @@ Route::group(['middleware' => ['student']], function () {
 
     Route::get('/card', 'CardController@index');
     Route::post('/card/store', 'CardController@store');
-    Route::post('/card/update', 'CardController@updateCard');
 });
 
 Auth::routes();
