@@ -34,3 +34,6 @@ class CreateCommissionsTable extends Migration
         Schema::dropIfExists('commissions');
     }
 }
+
+
+

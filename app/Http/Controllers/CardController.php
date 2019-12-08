@@ -15,23 +15,18 @@ use Illuminate\Support\Facades\Auth;
 class CardController extends Controller
 {
     public function index(){
-        if(!Auth::check())
-            return redirect('/login');
+        if(!Auth::check()) return redirect('/login');
         else {
-            $card = DB::table('Users')
-                ->join('Cards', function ($join) {
-                    $join->on('Users.id_card', '=', 'Cards.id')
-                        ->where('Users.id_card', '=', Auth::user()->id_card);
-                })
-                ->get();
-
+            $card = DB::table('Users')->join('Cards', function ($join)
+            {$join->on('Users.id_card', '=', 'Cards.id')
+                        ->where('Users.id_card', '=', Auth::user()->id_card);})->get();
             $promoter = DB::table('Users')
                 ->where('Users.specialization', '=', 'promotor')
                 ->get();
-
             $commission = DB::table('Commissions')
                 ->get();
-            return view('student.card', ["cardlist" => $card, "promoters" => $promoter, "commissions" => $commission]);
+            return view('student.card',
+                ["cardlist" => $card, "promoters" => $promoter, "commissions" => $commission]);
         }
     }
 

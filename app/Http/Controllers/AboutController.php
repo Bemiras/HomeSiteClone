@@ -20,12 +20,23 @@ class AboutController extends Controller
             return redirect('/login');
         }
         else{
-            $datadepartment = Department::select("name")->where('id', Auth::user()->department)->first();
-            $datadirecrtion = Direction::select("name")->where('id', Auth::user()->direction)->first();
-            $datalevelstudy = Levelstudy::select("name")->where('id', Auth::user()->levelstudy)->first();
-            $datatypestudy = Typestudy::select("name")->where('id', Auth::user()->typestudy)->first();
+            $datadepartment = Department::select("name")->
+            where('id', Auth::user()->department)->first();
+            $datadirecrtion = Direction::select("name")->
+            where('id', Auth::user()->direction)->first();
+            $datalevelstudy = Levelstudy::select("name")->
+            where('id', Auth::user()->levelstudy)->first();
+            $datatypestudy = Typestudy::select("name")->
+            where('id', Auth::user()->typestudy)->first();
 
-            return view('about', ["datadepartment"=>$datadepartment, "datadirection"=>$datadirecrtion, "datalevelstudy"=>$datalevelstudy, "datatypestudy"=>$datatypestudy]);
+            return view('about',
+                ["datadepartment"=>$datadepartment,
+                    "datadirection"=>$datadirecrtion,
+                    "datalevelstudy"=>$datalevelstudy,
+                    "datatypestudy"=>$datatypestudy]);
         }
     }
 }
+
+
+

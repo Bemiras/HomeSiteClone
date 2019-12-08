@@ -6,11 +6,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateUsersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
@@ -19,26 +14,32 @@ class CreateUsersTable extends Migration
             $table->string('lastname');
             $table->string('email');
             $table->string('password');
-            $table->integer('typestudy')->unsigned()->nullable();
-            $table->integer('levelstudy')->unsigned()->nullable();
-            $table->integer('department')->unsigned()->nullable();
-            $table->integer('direction')->unsigned()->nullable();
-            $table->string('role')->default('student');
-            $table->string('card')->default('Brak');
-            $table->integer('id_card')->unsigned()->nullable();
-            $table->string('specialization')->nullable();
+            $table->integer('typestudy')
+                ->unsigned()->nullable();
+            $table->integer('levelstudy')
+                ->unsigned()->nullable();
+            $table->integer('department')
+                ->unsigned()->nullable();
+            $table->integer('direction')
+                ->unsigned()->nullable();
+            $table->string('role')
+                ->default('student');
+            $table->string('card')
+                ->default('Brak');
+            $table->integer('id_card')
+                ->unsigned()->nullable();
+            $table->string('specialization')
+                ->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('users');
     }
 }
+
+
+

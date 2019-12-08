@@ -43,14 +43,15 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @guest
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('login') }}">Logowanie</a></li>
+                            <li><a href="{{ route('register') }}">Rejestracja</a></li>
                         @else
 
 
                         @if (Auth::check() && Auth::user()->role == 'student')
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                               role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                 Moje dane <span class="caret"></span>
                             </a>
 
@@ -69,7 +70,8 @@
                         </li>
 
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                               role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                 Korespondencje <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
@@ -85,7 +87,8 @@
 
                         @if (Auth::check() && Auth::user()->role == 'pracownik')
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                               role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                 Moje dane <span class="caret"></span>
                             </a>
 
@@ -100,23 +103,28 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ URL::to('pendingapplication') }}">Oczekujące podania</a>
+                            <a class="nav-link" href="{{ URL::to('pendingapplication') }}"
+                            >Oczekujące podania</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ URL::to('consideredapplication') }}">Rozpatrzone podania</a>
+                            <a class="nav-link" href="{{ URL::to('consideredapplication') }}"
+                            >Rozpatrzone podania</a>
                         </li>
 
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                               role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                 Korespondencje <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a class="nav-link" href="{{ URL::to('message') }}">Odebrane</a>
+                                    <a class="nav-link" href="{{ URL::to('message') }}"
+                                    >Odebrane</a>
                                 </li>
                                 <li>
-                                    <a class="nav-link" href="{{ URL::to('messageSend') }}">Wysłane</a>
+                                    <a class="nav-link" href="{{ URL::to('messageSend') }}"
+                                    >Wysłane</a>
                                 </li>
                             </ul>
                         </li>
@@ -124,56 +132,62 @@
 
                         @if (Auth::check() && Auth::user()->role == 'administrator')
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ URL::to('about') }}">Moje dane</a>
-                        </li>
+                            <a class="nav-link" href="{{ URL::to('about') }}"
+                            >Moje dane</a>
                         </li>
                          <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                                   role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                     Oferta edukacyjna <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{ URL::to('departmentoffer') }}">
-                                            Lista wydziałów
+                                    <li><a href="{{ URL::to('departmentoffer') }}"
+                                        >Lista wydziałów
                                         </a></li>
-                                    <li><a href="{{ URL::to('directionoffer') }}">
-                                            Lista kierunków
+                                    <li><a href="{{ URL::to('directionoffer') }}"
+                                        >Lista kierunków
                                         </a></li>
                                 </ul>
                             </li>
-
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                               role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                 Pracownicy <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a class="nav-link" href="{{ URL::to('userrole') }}">Lista Pracowników</a>
+                                    <a class="nav-link" href="{{ URL::to('userrole') }}"
+                                    >Lista Pracowników</a>
                                 </li>
                                 <li>
-                                    <a class="nav-link" href="{{ URL::to('userrole/registrations') }}">Dodaj Pracownika</a>
+                                    <a class="nav-link" href="{{ URL::to('userrole/registrations') }}"
+                                    >Dodaj Pracownika</a>
                                 </li>
                             </ul>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ URL::to('applicationToAccept') }}">Podania o zmianę danych</a>
+                            <a class="nav-link" href="{{ URL::to('applicationToAccept') }}"
+                            >Podania o zmianę danych</a>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ URL::to('userlist') }}">Lista studentów</a>
+                            <a class="nav-link" href="{{ URL::to('userlist') }}"
+                            >Lista studentów</a>
                         </li>
 
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                               role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                 Komisje <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a class="nav-link" href="{{ URL::to('commissions') }}">Lista Komisji</a>
+                                    <a class="nav-link" href="{{ URL::to('commissions') }}"
+                                    >Lista Komisji</a>
                                 </li>
                                 <li>
-                                    <a class="nav-link" href="{{ URL::to('commissions/create') }}">Dodaj Komisje</a>
+                                    <a class="nav-link" href="{{ URL::to('commissions/create') }}"
+                                    >Dodaj Komisje</a>
                                 </li>
                             </ul>
                         </li>
