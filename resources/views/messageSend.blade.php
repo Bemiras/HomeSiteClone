@@ -10,7 +10,9 @@
     <thead>
     <tr>
         <th><h4>Odbiorca</h4></th>
-        <th><h4>Stanowisko</h4></th>
+        @if(Auth::user()->role == 'student')
+            <th><h4>Stanowisko</h4></th>
+        @endif
         <th><h4>Treść</h4></th>
         <th><h4>Data</h4></th>
         <th><h4>Wyślij odpowiedz</h4></th>
@@ -22,7 +24,9 @@
         <tr>
             <th>{{$messageRecipient->messageRecipient_name}} {{$messageRecipient->messageRecipient_lastname}}
                 ({{$messageRecipient->messageRecipient_id}}) </th>
-            <th>{{$messageRecipient->messageRecipient_specialization}}</th>
+            @if(Auth::user()->role == 'student')
+                <th>{{$messageRecipient->messageRecipient_specialization}}</th>
+            @endif
             <th>{{$messageRecipient->message}}</th>
             <th>{{$messageRecipient->data}}</th>
             <th><a  href="{{ action('MessageController@newMessage', $messageRecipient->messageRecipient_id) }} "target="_blank">

@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\DB;
 class ConsideredapplicationController
 {
     public function index(){
-        if(!Auth::check())
+        if(!Auth::check() || Auth::user()->role == 'administrator')
             return redirect('/login');
         else{
 
@@ -43,6 +43,22 @@ class ConsideredapplicationController
         }
     }
 
+    public function archive(){
+        if(!Auth::check() || Auth::user()->role == 'administrator')
+            return redirect('/login');
+        else{
+
+            $users = DB::table('users')
+                ->join('cards','cards.id','=','users.id_card')
+                ->join('departments', 'departments.id', '=', 'users.department')
+                ->join('directions', 'directions.id', '=', 'users.direction')
+                ->select('users.*','users.id AS id_student','users.name AS name_student',
+                    'users.lastname AS lastname_student','departments.name AS name_department','directions.name AS name_direction')
+                ->get();
+
+            return view('worker.archive',["userlist"=>$users]);
+        }
+    }
     public function updateResetDeanery($id)
     {
         DB::table('Cards')

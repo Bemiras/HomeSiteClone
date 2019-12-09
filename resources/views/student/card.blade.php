@@ -12,7 +12,7 @@
 <h3>Wypełnij dane aby wysłać podanie o uruchomienie karty obiegowej </h3>
 
 <form action="{{ action('CardController@store')}}" method="post" role="form" >
-    
+
 <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
     </br>
 
@@ -45,7 +45,7 @@
 @if (Auth::check() && Auth::user()->role == 'student' && Auth::user()->card == 'W realizacji')
 
 <table align="center"  style="width: 40%;" class="table">
- 
+
     @foreach ($cardlist as $card)
     <tr><br>
         <tr>
@@ -58,7 +58,7 @@
         </tr>
         <tr>
             <td><h5>Dziekanat:</h5></td>
-            <td>{{ $card->deanery }}</td> 
+            <td>{{ $card->deanery }}</td>
         </tr>
         <tr>
             <td><h5>Promotor:</h5></td>
@@ -66,16 +66,12 @@
         </tr>
     </tr>
     @endforeach
-@if($card->dormitory == 'zakonczona' && $card->liblary == 'zakonczona' && $card->deanery == 'zakonczona' && $card->promoter == 'zakonczona')
-    <input type="submit" value="Wyślij kartę" class="btn btn-primary" />
-        Auth::user()->card = 'zakonczona';
-    @endif
-            
+
 </table>
 
 @endif
 
-@if (Auth::check() && Auth::user()->role == 'student' && Auth::user()->card == 'zakonczona')
+@if (Auth::check() && Auth::user()->role == 'student' && Auth::user()->card == 'Zakonczona')
 <br>
 <h4 align="center">Twoja karta została zakończona pomyślnie </h4>
 

@@ -50,6 +50,4 @@ class CardController extends Controller
 
         return redirect()->action('CardController@index');
     }
-
-    
 }    

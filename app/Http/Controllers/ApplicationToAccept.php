@@ -31,20 +31,36 @@ class applicationToAccept extends Controller
                 ->select('users.*','departments.name AS name_department','directions.name AS name_direction')
                 ->get();
     */
-
-            $dataBase = DB::table('application_for_changing_datas')
-                ->join('departments', 'departments.id', '=', 'application_for_changing_datas.department')
-                ->join('directions', 'directions.id', '=', 'application_for_changing_datas.direction')
-                ->join('users', 'users.id', '=', 'application_for_changing_datas.user_id')
-                ->select('application_for_changing_datas.*', 'departments.name AS name_department', 'directions.name AS name_direction',
-                    'users.id AS id_user_users', 'users.name AS old_name', 'users.lastname AS old_lastname', 'users.typestudy AS old_typestudy',
-                    'users.levelstudy AS old_levelstudy', 'users.department AS old_department', 'users.direction AS old_direction',
-                    'users.specialization AS old_specialization', 'users.role AS role'
-                )
-                ->get();
-
-            return view('ApplicationToAccept', ["dataBase" => $dataBase]);
-            // return view ('ApplicationToAccept',["dataToChange" => $dataToChange, "userData" => $userData]);
+            $applicationForChangingData = new ApplicationForChangingData;
+            //if worker.  The worker doesn't have 'directions', join at 'directions' is abandoned, users.direction AS name_direction need null
+            if ($applicationForChangingData->direction == null) {
+                $dataBase = DB::table('application_for_changing_datas')
+                    ->join('departments', 'departments.id', '=', 'application_for_changing_datas.department')
+                    ->join('users', 'users.id', '=', 'application_for_changing_datas.user_id')
+                    ->select('application_for_changing_datas.*', 'departments.name AS name_department', 'users.direction AS name_direction',
+                        'users.id AS id_user_users', 'users.name AS old_name', 'users.lastname AS old_lastname', 'users.typestudy AS old_typestudy',
+                        'users.levelstudy AS old_levelstudy', 'users.department AS old_department', 'users.direction AS old_direction',
+                        'users.specialization AS old_specialization', 'users.role AS role'
+                    )
+                    ->get();
+                //var_dump($dataBase);
+                return view('ApplicationToAccept', ["dataBase" => $dataBase]);
+            } //if student. Student has direction.
+            else {
+                $dataBase = DB::table('application_for_changing_datas')
+                    ->join('departments', 'departments.id', '=', 'application_for_changing_datas.department')
+                    ->join('directions', 'directions.id', '=', 'application_for_changing_datas.direction')
+                    ->join('users', 'users.id', '=', 'application_for_changing_datas.user_id')
+                    ->select('application_for_changing_datas.*', 'departments.name AS name_department', 'directions.name AS name_direction',
+                        'users.id AS id_user_users', 'users.name AS old_name', 'users.lastname AS old_lastname', 'users.typestudy AS old_typestudy',
+                        'users.levelstudy AS old_levelstudy', 'users.department AS old_department', 'users.direction AS old_direction',
+                        'users.specialization AS old_specialization', 'users.role AS role'
+                    )
+                    ->get();
+                //var_dump($dataBase);
+                return view('ApplicationToAccept', ["dataBase" => $dataBase]);
+                // return view ('ApplicationToAccept',["dataToChange" => $dataToChange, "userData" => $userData]);
+            }
         }
     }
 

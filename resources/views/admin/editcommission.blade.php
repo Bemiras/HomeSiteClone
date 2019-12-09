@@ -11,11 +11,19 @@
     @foreach ($commissionlist as $commission)
 <form align="center" action="{{ action('CommissionsController@update',$commission->commission_id) }}" method="post" role="form" >
     {{ csrf_field() }}
-    <table align="center"  style="width: 40%;" class="table">
-            <label for="title">Nazwa komisji</label>
-            <div>
-                <textarea name="name" style="width: 40%;" rows="1" cols="30" ></textarea>
-            </div></br>
+
+
+    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+        <label for="title">Nazwa komisji</label>
+        <div>
+            <textarea name="name" style="width: 40%;" rows="1" cols="30" value="{{ old('name') }}" required></textarea>
+        </div></br>
+        @if ($errors->has('name'))
+        <span class="help-block">
+                <strong>{{ $errors->first('name') }}</strong>
+            </span>
+        @endif
+    </div>
 
 
 
