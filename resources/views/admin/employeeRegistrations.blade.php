@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Dodaj Pracownika</div>
                 <div class="panel-body">
-                    z<form class="form-horizontal" method="POST" action="/userrole/regiserEmployee">
+                    <form class="form-horizontal" method="POST" action="/userrole/regiserEmployee">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">

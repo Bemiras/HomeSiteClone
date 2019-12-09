@@ -54,6 +54,15 @@ class UserroleController
     }
 
     public function regiserEmployee(Request $request){
+
+        $validateData = $request->validate([
+            'name' => 'required|string|max:255',
+            'lastname' => 'required|string|max:255',
+            'id' => 'required|numeric|unique:users',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed'
+        ]);
+
         $data = new User();
 
         $data->name = $request->input('name');
