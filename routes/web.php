@@ -52,6 +52,8 @@ Route::group(['middleware' => ['worker']], function () {
     Route::get('/consideredapplication/updateResetLiblary/{id}', 'ConsideredapplicationController@updateResetLiblary');
     Route::get('/consideredapplication/updateResetDormitory/{id}', 'ConsideredapplicationController@updateResetDormitory');
     Route::get('/consideredapplication/updateResetPromoter/{id}', 'ConsideredapplicationController@updateResetPromoter');;
+
+    Route::get('/consideredapplication/archive', 'ConsideredapplicationController@archive');;
 });
 
 

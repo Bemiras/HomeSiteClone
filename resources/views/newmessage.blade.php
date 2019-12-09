@@ -15,9 +15,16 @@
 
         <label name="recipient_name" ><h4>ODBIORCA:  {{$user->student_name}} {{$user->student_lastname}}  {{$user->student_id}}</h4></label>
 
-
-        <div>
-            <textarea name="message" style="width: 40%;" rows="10" cols="30" ></textarea>
+        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+            <label for="title"><h4>Treść wiadomości:</h4></label>
+            <div>
+                <textarea name="message" style="width: 40%;" rows="10" cols="30"  value="{{ old('message') }}" required></textarea>
+            </div></br>
+            @if ($errors->has('name'))
+            <span class="help-block">
+                <strong>{{ $errors->first('name') }}</strong>
+            </span>
+            @endif
         </div></br>
             <input type="hidden" value="{{ Auth::user()->id }}" name="sender"/>
             <input type="hidden" value="{{$user->student_id}}" name="recipient"/>
