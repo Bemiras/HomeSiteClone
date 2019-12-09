@@ -27,7 +27,7 @@
                                         <th>{{$data->role}}</th>
                                         <th>{{$data->old_name}}          <br /> --- <br /> {{$data->name}}</th>
                                         <th>{{$data->old_lastname}}      <br /> --- <br /> {{$data->lastname}}</th>
-                                        <th>{{$data->old_email}}      <br /> --- <br /> {{$data->email}}</th>
+                                        <th>{{$data->old_email}}         <br /> --- <br /> {{$data->email}}</th>
                                         <th>{{$data->old_department}}    <br /> --- <br /> {{$data->name_department}}</th>
                                         @if($data->role == 'student')
                                         <th>{{$data->old_direction}}     <br /> --- <br /> {{$data->name_direction}}</th>
