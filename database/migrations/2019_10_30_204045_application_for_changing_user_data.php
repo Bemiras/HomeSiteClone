@@ -20,6 +20,7 @@ class ApplicationForChangingUserData extends Migration
             $table->integer('user_id');
             $table->string('name');
             $table->string('lastname');
+            $table->string('email');
             $table->integer('typestudy')->unsigned()->nullable();
             $table->integer('levelstudy')->unsigned()->nullable();
             $table->integer('department')->unsigned()->nullable();

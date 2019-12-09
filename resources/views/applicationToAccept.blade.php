@@ -21,23 +21,14 @@
                                 <tbody>
                                 @foreach ($dataBase as $data)
                                 <tr>
+
                                         <th scope="row">{{$data->user_id}}</th>
                                         <th>{{$data->role}}</th>
-<<<<<<< HEAD
-                                        <th>{{$data->old_name}}
-                                            <br /> --- <br /> {{$data->name}}</th>
-                                        <th>{{$data->old_lastname}}
-                                            <br /> --- <br /> {{$data->lastname}}</th>
-                                        <th>{{$data->name_department}}
-                                            <br /> --- <br /> {{$data->name_department}}</th>
-                                        <th>{{$data->name_direction}}
-                                            <br /> --- <br /> {{$data->name_direction}}</th>
-=======
                                         <th>{{$data->old_name}}          <br /> --- <br /> {{$data->name}}</th>
                                         <th>{{$data->old_lastname}}      <br /> --- <br /> {{$data->lastname}}</th>
                                         <th>{{$data->old_department}}    <br /> --- <br /> {{$data->name_department}}</th>
                                         <th>{{$data->old_direction}}     <br /> --- <br /> {{$data->name_direction}}</th>
->>>>>>> ae52ea6aca32abc8beb1d035aa2f46cd33c94445
+
                                         <th>
                                             <form class="form-horizontal"  method="POST"
                                                   name="acceptEditChange"
