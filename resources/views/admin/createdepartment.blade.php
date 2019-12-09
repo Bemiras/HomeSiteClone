@@ -13,9 +13,17 @@
 <form action="{{ action('DepartmentofferController@store') }}" method="post" role="form" >
     <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 
-    <div>
-        <h4>Wydział:     <textarea name="name" rows="1" cols="30" ></textarea></h4>
-    </div></br>
+    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+        <label for="title"><h4>Wydział:</h4></label>
+        <div>
+            <textarea name="name" style="width: 40%;" rows="1" cols="30" value="{{ old('name') }}" required></textarea>
+        </div></br>
+        @if ($errors->has('name'))
+        <span class="help-block">
+                <strong>{{ $errors->first('name') }}</strong>
+            </span>
+        @endif
+    </div>
 
 
     <input type="submit" value="Dodaj" class="btn btn-primary" />

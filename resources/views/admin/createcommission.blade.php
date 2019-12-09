@@ -13,12 +13,17 @@
 <form action="{{ action('CommissionsController@store') }}" method="post" role="form" >
     <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 
-
+    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
     <label for="title">Nazwa komisji</label>
     <div>
-        <textarea name="name" style="width: 40%;" rows="1" cols="30" ></textarea>
+        <textarea name="name" style="width: 40%;" rows="1" cols="30" value="{{ old('name') }}" required></textarea>
     </div></br>
-
+    @if ($errors->has('name'))
+    <span class="help-block">
+                <strong>{{ $errors->first('name') }}</strong>
+            </span>
+    @endif
+    </div>
 
 
     <label for="title">Wybór przewodniczącego:</label>

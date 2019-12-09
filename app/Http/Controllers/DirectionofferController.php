@@ -4,9 +4,11 @@
 namespace App\Http\Controllers;
 
 use App\Direction;
+use App\User;
 use Illuminate\Http\Request;
 use App\Repositories\DirectionRepository;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 
 class DirectionofferController extends Controller
@@ -55,5 +57,12 @@ class DirectionofferController extends Controller
         $direction->name = $request->input('name');
         $direction->save();
         return redirect()->action('DirectionofferController@index');
+    }
+
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => 'required|string|max:255',
+        ]);
     }
 }
