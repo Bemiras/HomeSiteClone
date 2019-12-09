@@ -37,10 +37,11 @@ class applicationToAccept extends Controller
                 $dataBase = DB::table('application_for_changing_datas')
                     ->join('departments', 'departments.id', '=', 'application_for_changing_datas.department')
                     ->join('users', 'users.id', '=', 'application_for_changing_datas.user_id')
-                    ->select('application_for_changing_datas.*', 'departments.name AS name_department', 'users.direction AS name_direction',
-                        'users.id AS id_user_users', 'users.name AS old_name', 'users.lastname AS old_lastname', 'users.typestudy AS old_typestudy',
-                        'users.levelstudy AS old_levelstudy', 'users.department AS old_department', 'users.direction AS old_direction',
-                        'users.specialization AS old_specialization', 'users.role AS role'
+                    ->select('application_for_changing_datas.*',  'users.role AS role',
+                        'users.id AS id_user', 'users.name AS old_name', 'users.lastname AS old_lastname',
+                        'users.email AS old_email','application_for_changing_datas.email AS email',
+                        'departments.name AS name_department',
+                        'users.department AS old_department'
                     )
                     ->get();
                 //var_dump($dataBase);

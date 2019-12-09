@@ -13,6 +13,7 @@
                                     <th><h4>Rola</h4></th>>
                                     <th><h4>Imię</h4></th>
                                     <th><h4>Nazwisko</h4></th>
+                                    <th><h4>Emial</h4></th>
                                     <th><h4>Wydział</h4></th>
                                     <th><h4>Kierunek</h4></th>
                                     <th><h4>Akceptuj</h4></th>
@@ -26,9 +27,12 @@
                                         <th>{{$data->role}}</th>
                                         <th>{{$data->old_name}}          <br /> --- <br /> {{$data->name}}</th>
                                         <th>{{$data->old_lastname}}      <br /> --- <br /> {{$data->lastname}}</th>
+                                        <th>{{$data->old_email}}      <br /> --- <br /> {{$data->email}}</th>
                                         <th>{{$data->old_department}}    <br /> --- <br /> {{$data->name_department}}</th>
+                                        @if($data->role == 'student')
                                         <th>{{$data->old_direction}}     <br /> --- <br /> {{$data->name_direction}}</th>
-
+                                        @else <th> - </th>
+                                        @endif
                                         <th>
                                             <form class="form-horizontal"  method="POST"
                                                   name="acceptEditChange"
