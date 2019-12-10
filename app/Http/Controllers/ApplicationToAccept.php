@@ -44,7 +44,7 @@ class applicationToAccept extends Controller
                     ->join('departments', 'departments.id', '=', 'application_for_changing_datas.department')
                     ->join('users', 'users.id', '=', 'application_for_changing_datas.user_id')
                     ->join('departments AS d', 'd.id', '=', 'users.department')
-                    ->select('application_for_changing_datas.*', 'departments.name AS name_department','application_for_changing_datas.direction AS name_direction',
+                    ->select('application_for_changing_datas.*', 'departments.name AS name_department',
                         'users.id AS id_user_users', 'users.name AS old_name', 'users.lastname AS old_lastname', 'users.typestudy AS old_typestudy',
                         'users.levelstudy AS old_levelstudy', 'd.name AS old_department', 'd.name As old_direction',
                         'users.specialization AS old_specialization', 'users.role AS role', 'users.email AS old_email')
