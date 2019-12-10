@@ -88,7 +88,9 @@ Route::group(['middleware' => ['admin']], function () {
 
     Route::get('/userlist', 'UserlistController@index');
 
-    Route::get('/applicationToAccept', 'ApplicationToAccept@index');
+    Route::get('/applicationToAcceptWorkers', 'ApplicationToAccept@acceptWorkers');
+    Route::get('/applicationToAcceptStudents', 'ApplicationToAccept@acceptStudents');
+
     Route::post('/acceptEditChange/{id?}', 'ApplicationToAccept@acceptEditChange');
     Route::post('/dismissEditChange/{id}', 'ApplicationToAccept@dismissEditChange');
 });
