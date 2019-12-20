@@ -20,7 +20,6 @@ class CreateCommissionsTable extends Migration
             $table->integer('workerZastepca');
             $table->integer('workerSekretarz');
             $table->integer('workerCzlonek');
-            $table->integer('usernumber_commission');
             $table->timestamps();
         });
     }
